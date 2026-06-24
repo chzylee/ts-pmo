@@ -81,7 +81,7 @@ The full walkthrough lives in the **User Guide** inside your duplicated Notion t
 - **One workspace per install** — pointing it at a different Notion workspace means re-running `ts-pmo-setup`.
 
 ## Updating
-Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`) to pull the latest. **Re-installing overwrites your wired IDs with placeholders, so re-run `ts-pmo-setup` after any update** — it's fast, and re-pointing is supported. Updates never touch your Notion data.
+Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`) to pull the latest — that's it. Your IDs live in **`~/.claude/ts-pmo.local.md`**, which updates never touch, so there's **no re-setup after an update**. (Re-run `ts-pmo-setup` only if you re-duplicate the template or switch workspaces.) Updates never touch your Notion data either.
 
 ## Uninstalling
 - **Plugin install:** `/plugin uninstall ts-pmo` (terminal) or remove it from the desktop **+ → Plugins → Manage**.
@@ -90,7 +90,7 @@ Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`)
 Your Notion workspace is yours — uninstalling the skills leaves it untouched.
 
 ## Troubleshooting
-- **A skill can't find your databases, or uses a literal `{{…}}` ID** → you haven't wired it yet. Say **"set up ts-pmo"** (it falls back to a guided manual repoint if it can't auto-detect).
+- **A skill says it can't find your databases / isn't wired** → your config file `~/.claude/ts-pmo.local.md` is missing or has a blank ID. Say **"set up ts-pmo"** (it writes the config; manual fallback in INSTALL.md).
 - **`/plugin is not available in this environment`** → you're on the desktop app or web. Use the paste-in install, then start a new chat.
 - **Skills don't show up after installing** → start a **new chat**; skills load at the start of a session.
 - **`set up ts-pmo` can't find your template** → when asked, paste your duplicated **TS PMO** container page's link (Notion → ••• → Copy link).

@@ -5,13 +5,13 @@ description: Pick one Effort back up after time away. Gives a one-screen catch-u
 
 # Resync → re-enter one Effort
 
-> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · canonical IDs · field semantics (priority cascade, impact locality, status ladders).
+> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · workspace IDs · field semantics (priority cascade, impact locality, status ladders).
 
 Targets:
-- efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
-- streams_ds   {{WORK_STREAMS_DS_ID}}   (🧭 Work Streams)
-- items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items)
-- worklog_ds   {{WORK_LOG_DS_ID}}   (📓 Work Log)
+- efforts_ds   (🎯 Efforts)
+- streams_ds   (🧭 Work Streams)
+- items_ds     (✅ Work Items)
+- worklog_ds   (📓 Work Log)
 
 Convention: **User Sovereignty** — read-only; offer to update Next action only on confirmation.
 

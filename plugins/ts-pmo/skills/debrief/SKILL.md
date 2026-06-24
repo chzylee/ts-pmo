@@ -5,14 +5,14 @@ description: Log Claude work into Notion and move the board — one chat, or a w
 
 # Debrief → Notion (3-tier model)
 
-> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · canonical IDs · field semantics (priority cascade, impact locality, status ladders).
+> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · workspace IDs · field semantics (priority cascade, impact locality, status ladders).
 
 Targets:
-- efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
-- streams_ds   {{WORK_STREAMS_DS_ID}}   (🧭 Work Streams)
-- items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items)
-- worklog_ds   {{WORK_LOG_DS_ID}}   (📓 Work Log)
-- daily_log    {{DAILY_LOG_PAGE_ID}}   (📅 Daily Log — a **page** with one dated child page per day, not a DB)
+- efforts_ds   (🎯 Efforts)
+- streams_ds   (🧭 Work Streams)
+- items_ds     (✅ Work Items)
+- worklog_ds   (📓 Work Log)
+- daily_log    (📅 Daily Log — a **page** with one dated child page per day, not a DB)
 
 Model: **Effort → Work Stream (optional) → Work Item.** The Work Log relates to an **Effort** (and optionally a **Work Item**). There is no Map and no Todos database anymore.
 

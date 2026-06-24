@@ -5,12 +5,12 @@ description: Interview the user about their priorities and what productive use o
 
 # Set Direction → the yardstick
 
-> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · canonical IDs · field semantics (priority cascade, impact locality, status ladders).
+> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · workspace IDs · field semantics (priority cascade, impact locality, status ladders).
 
 Targets:
-- efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
-- items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items — for the Todo boards)
-- core_context {{CORE_CONTEXT_DS_ID}}   (🧠 Core Context)
+- efforts_ds   (🎯 Efforts)
+- items_ds     (✅ Work Items — for the Todo boards)
+- core_context (🧠 Core Context)
 
 Convention: **User Sovereignty** — draft, show, edit until approved, then write. This is the analog of an injected builder profile: short, high-signal, read on every skill run.
 

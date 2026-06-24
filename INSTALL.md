@@ -38,29 +38,28 @@ share `~/.claude`). Note: the **in-app `/plugin` slash command is CLI-only** —
 desktop app or web, use the paste-in method above.
 
 ## 4. Wire the skills to YOUR template (one-time) — `ts-pmo-setup`
-The skills ship with **placeholder IDs** like `{{EFFORTS_DS_ID}}`; they need your copy's
-real IDs before they can read or write Notion. Let the setup skill do it:
+The skills read your workspace IDs from one config file, **`~/.claude/ts-pmo.local.md`**.
+It doesn't exist yet — the setup skill writes it:
 
 > **Say "set up ts-pmo".** The **`ts-pmo-setup`** skill finds your duplicated template
 > through the Notion connector, matches each database, shows you the IDs it resolved, and
-> (on your OK) writes them into `_SHARED-PREAMBLE.md` and every skill's `Targets:` block.
-> If it can't auto-detect, it walks you through a manual repoint — you can even paste the
-> IDs and let it do the file edits.
+> (on your OK) writes them to `~/.claude/ts-pmo.local.md`. It **never edits the skill
+> files**, so updating the skills later can't undo your wiring.
 
 ### Manual fallback
-If you'd rather do it by hand (or the connector isn't available): open each database (or
-the Daily Log page) as a full page in Notion → **•••** → **Copy link**; the 32-char hex
-string in the URL is that item's ID. Replace every placeholder below in
-**`plugins/ts-pmo/skills/_SHARED-PREAMBLE.md`** *and* each skill's `Targets:` block:
+No connector, or prefer to do it by hand? Copy **`ts-pmo.local.example.md`** (in the repo)
+to **`~/.claude/ts-pmo.local.md`** and fill in each ID. To find an ID: open the database
+(or the Daily Log page) in Notion → **•••** → **Copy link**; the 32-char hex string in the
+URL is its ID.
 
-| Placeholder | Your template item |
+| logical name | Your template item |
 |---|---|
-| `{{EFFORTS_DS_ID}}` | 🎯 Efforts (database) |
-| `{{WORK_STREAMS_DS_ID}}` | 🧭 Work Streams (database) |
-| `{{WORK_ITEMS_DS_ID}}` | ✅ Work Items (database) |
-| `{{WORK_LOG_DS_ID}}` | 📓 Work Log (database) |
-| `{{DAILY_LOG_PAGE_ID}}` | 📅 Daily Log — a **page**, not a DB (use its page ID) |
-| `{{CORE_CONTEXT_DS_ID}}` | 🧠 Core Context (database) |
+| `efforts_ds` | 🎯 Efforts (database) |
+| `streams_ds` | 🧭 Work Streams (database) |
+| `items_ds` | ✅ Work Items (database) |
+| `worklog_ds` | 📓 Work Log (database) |
+| `core_context` | 🧠 Core Context (database) |
+| `daily_log` | 📅 Daily Log — a **page**, not a DB (use its page ID) |
 
 ## 5. First run
 - Say **"set up my direction"** → `set-direction` writes your Direction (the yardstick).

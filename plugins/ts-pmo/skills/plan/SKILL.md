@@ -5,7 +5,7 @@ description: Plan a realistic day or week from your open work. Computes effectiv
 
 # Plan → a realistic day or week
 
-> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · canonical IDs · field semantics (priority cascade, impact locality, status ladders).
+> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · workspace IDs · field semantics (priority cascade, impact locality, status ladders).
 
 **Your task:** produce a feasible, priority-aligned plan for the requested horizon and
 stage it on the boards so the user can start working — and refactor it — immediately.
@@ -13,11 +13,11 @@ Gather what you need (chiefly: available time for a day) to make it realistic. T
 is a *starting point*, not a verdict; the user owns the final shape.
 
 Targets:
-- efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
-- streams_ds   {{WORK_STREAMS_DS_ID}}   (🧭 Work Streams)
-- items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items) — uses the **Plan** select (Today / This week)
-- worklog_ds   {{WORK_LOG_DS_ID}}   (📓 Work Log)
-- core_context {{CORE_CONTEXT_DS_ID}}   (🧠 Core Context → Direction)
+- efforts_ds   (🎯 Efforts)
+- streams_ds   (🧭 Work Streams)
+- items_ds     (✅ Work Items) — uses the **Plan** select (Today / This week)
+- worklog_ds   (📓 Work Log)
+- core_context (🧠 Core Context → Direction)
 
 ## Horizon
 "plan my day" → **Day** (Plan tag = `Today`). "plan my week" → **Week** (Plan tag =

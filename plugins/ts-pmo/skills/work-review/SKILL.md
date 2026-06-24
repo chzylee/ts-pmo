@@ -5,7 +5,7 @@ description: Review your work — from a quick task-set hygiene scan to a full a
 
 # Work-review → is your work clean and on-target
 
-> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · canonical IDs · field semantics (priority cascade, impact locality, status ladders).
+> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · workspace IDs · field semantics (priority cascade, impact locality, status ladders).
 
 **Your task:** give the user an honest read on the state of their work at the depth
 they ask for — surface what needs attention, tie every claim to evidence, separate
@@ -13,11 +13,11 @@ observation from interpretation, and let them rule on any change. Read-only unle
 user confirms a fix.
 
 Targets:
-- efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
-- streams_ds   {{WORK_STREAMS_DS_ID}}   (🧭 Work Streams)
-- items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items)
-- worklog_ds   {{WORK_LOG_DS_ID}}   (📓 Work Log)
-- core_context {{CORE_CONTEXT_DS_ID}}   (🧠 Core Context → Direction)
+- efforts_ds   (🎯 Efforts)
+- streams_ds   (🧭 Work Streams)
+- items_ds     (✅ Work Items)
+- worklog_ds   (📓 Work Log)
+- core_context (🧠 Core Context → Direction)
 
 ## Step 0 — Ask the depth (always, first)
 - **Quick** — a hygiene scan of the *current* task set (fast, no history).

@@ -5,7 +5,7 @@ description: Create a fully-formed Effort, Work Stream, or Work Item — the one
 
 # Create → a fully-formed item, every tier
 
-> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · canonical IDs · field semantics (priority cascade, impact locality, status ladders).
+> Inherits **[`_SHARED-PREAMBLE.md`](../_SHARED-PREAMBLE.md)** — User Sovereignty · workspace IDs · field semantics (priority cascade, impact locality, status ladders).
 
 **Your task:** turn a rough intent into one well-formed Effort, Work Stream, or Work
 Item — fully populated and coherent with the user's goals — then hand control back
@@ -14,10 +14,10 @@ Gather whatever you need to deliver it in full quality: never write a half-forme
 item, never guess past your confidence, and never write without confirmation.
 
 Targets:
-- efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
-- streams_ds   {{WORK_STREAMS_DS_ID}}   (🧭 Work Streams)
-- items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items)
-- core_context {{CORE_CONTEXT_DS_ID}}   (🧠 Core Context → Direction)
+- efforts_ds   (🎯 Efforts)
+- streams_ds   (🧭 Work Streams)
+- items_ds     (✅ Work Items)
+- core_context (🧠 Core Context → Direction)
 
 ## Procedure
 1. **Load the north star.** Read the **Direction** module in Core Context — it's the

@@ -1,10 +1,9 @@
 # Shared preamble — TS PMO core skill suite
 
 The six core skills — `set-direction`, `create`, `plan`, `work-review`, `debrief`,
-`resync` — inherit this. Each SKILL.md restates the IDs it needs in its own
-`Targets:` block so it stays self-contained at runtime; this file is the single
-source of truth for the IDs, the working conventions, and the field semantics.
-When a skill and this file disagree, this file wins — update both.
+`resync` — inherit this file: the working conventions, the field semantics, and how to
+resolve your workspace IDs (next section). Each skill's `Targets:` block names the logical
+stores it touches; the real IDs live in one config file, never in the skills.
 
 ## The skill contract (gstack-style)
 This is a project-management assistant for **Claude Code**. Each skill **owns a
@@ -18,29 +17,23 @@ skill is read-first / confirm-before-write. Confirm before any irreversible
 Notion change. Present options and let the user decide. Accuracy over
 agreeableness; flag uncertainty plainly.
 
-## Canonical data-source IDs
-> **⚠️ First-run setup:** these are placeholders. Run the **`ts-pmo-setup`** skill once
-> (say *"set up ts-pmo"*) to fill them with **your** template's real IDs automatically —
-> or repoint by hand via `INSTALL.md`. The skills can't read or write your workspace
-> until this is done.
+## Your workspace IDs (config)
+The skills don't hard-code IDs. Your six Notion IDs live in **`~/.claude/ts-pmo.local.md`**
+— a small table written by `ts-pmo-setup`. **At the start of any skill that reads or writes
+Notion, read that file and resolve each logical name to its ID:**
 
-| Store | data-source ID |
+| logical name | Notion store |
 |---|---|
-| 🎯 Efforts | `{{EFFORTS_DS_ID}}` |
-| 🧭 Work Streams | `{{WORK_STREAMS_DS_ID}}` |
-| ✅ Work Items | `{{WORK_ITEMS_DS_ID}}` |
-| 📓 Work Log | `{{WORK_LOG_DS_ID}}` |
-| 📅 Daily Log *(a page, not a DB)* | `{{DAILY_LOG_PAGE_ID}}` |
-| 🧠 Core Context | `{{CORE_CONTEXT_DS_ID}}` |
+| `efforts_ds` | 🎯 Efforts |
+| `streams_ds` | 🧭 Work Streams |
+| `items_ds` | ✅ Work Items |
+| `worklog_ds` | 📓 Work Log |
+| `core_context` | 🧠 Core Context |
+| `daily_log` | 📅 Daily Log *(a page, not a DB)* |
 
-The same IDs appear in each skill's `Targets:` block — repoint them there too.
-
-## Before you run — IDs must be wired
-Every skill's `Targets:` must hold real IDs. **If any Target still contains `{{…}}`, the
-skills aren't pointed at a workspace yet — stop and route the user to `ts-pmo-setup`**
-(say *"set up ts-pmo"*). Never use a `{{…}}` placeholder as a Notion ID. (`ts-pmo-setup`
-is the one skill that intentionally runs with placeholders present — it's what fills
-them.)
+**If `~/.claude/ts-pmo.local.md` is missing, or any ID is blank, the skills aren't wired —
+stop and run `ts-pmo-setup`** (say *"set up ts-pmo"*). Never invent an ID. Because IDs live
+*only* in this one file, updating or re-installing the skills never disturbs your wiring.
 
 ## The 3-tier model
 **🎯 Effort → 🧭 Work Stream (optional) → ✅ Work Item**, most general to most
