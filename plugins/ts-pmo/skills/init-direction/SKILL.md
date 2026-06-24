@@ -1,6 +1,6 @@
 ---
 name: init-direction
-description: Interview the user about their priorities and what productive use of time means to them, then write the Direction module to Core Context. The foundational yardstick every accountability skill reads. Run first when setting up; re-run to refresh. Use on "set up my direction", "define my priorities", "refresh my direction".
+description: Interview the user about their priorities and what productive use of time means to them, then write the Direction module to Core Context — the foundational yardstick every accountability skill reads. Run first when setting up; re-run to **refresh** — on a refresh it diffs the stored Direction against your current Efforts and recent work and asks only about what's drifted. Use on "set up my direction", "define my priorities", "refresh my direction", "re-sync my direction", "is my direction still right".
 ---
 
 # Init Direction → the yardstick
@@ -15,8 +15,10 @@ Targets:
 Convention: **User Sovereignty** — draft, show, edit until approved, then write. This is the analog of an injected builder profile: short, high-signal, read on every skill run.
 
 ## Procedure
-1. CONTEXT. Check Core Context for an existing Direction module (refresh, don't duplicate). Read current Efforts (the top-level entities — JIRA-style Epics) for grounding.
-2. FORCING INTERVIEW (walk every question, one at a time):
+1. CONTEXT + MODE. Check Core Context for an existing Direction module, and read the current Efforts (names, Priority, Status) plus the recent Work Log distribution by Effort for grounding.
+   - **No Direction yet → FIRST RUN:** do the full forcing interview (step 2).
+   - **Direction exists → REFRESH (diff mode):** don't re-interview from scratch. Compute where the stored Direction has **drifted** from reality — Efforts added / removed / re-ranked, the stated #1 vs. where time actually went, Shipped/Archived Efforts it still treats as live, and anything the user said this session that conflicts with it. Show that diff, then ask targeted questions **only on the drifted parts** and propose the updates.
+2. FORCING INTERVIEW (first run — walk every question; for a refresh, ask only the drifted questions from step 1):
    1. **Efforts** — your current top-level pursuits (each one an Effort/Epic)? List and confirm them.
    2. **Ranking** — rank your Efforts by priority now. The clear #1? Which are deliberately parked?
    3. **North star** — one sentence: what are you moving toward this season?

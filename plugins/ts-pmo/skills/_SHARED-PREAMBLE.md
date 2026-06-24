@@ -97,3 +97,18 @@ When a new Effort is created, add its name as a select option on **both**
 ✅ Work Items and 🧭 Work Streams (`update-data-source`:
 `ALTER COLUMN "Effort key" SET SELECT(...existing + new...)`). This is `create`'s
 job when the tier is Effort; it also builds that Effort's per-Effort board section.
+
+## Direction drift — watch for it
+The **Direction** module (Core Context) is the yardstick, but reality moves. Any skill
+that reads Direction should also run a **cheap drift check** and, on clear divergence,
+**surface a one-line nudge — never act**: *"Your Direction still ranks X #1, but [signal]
+— want to refresh it?"*, then hand to `init-direction`. Signals:
+- **Structural** — Efforts the ranking doesn't mention; an Effort it still ranks that's
+  now Shipped/Archived; the stated #1 isn't the one being worked.
+- **Allocation** — recent Work Log time-by-Effort contradicts the ranking (a starved #1;
+  a parked Effort quietly eating time). `work-review` audits this in depth.
+- **Stated** — the user says something this session that conflicts with the stored
+  Direction (a new north star, a re-prioritization, a "no" that became a "yes").
+- **Stale** — Direction unchanged for a long while though work continued.
+Keep it low-frequency — one nudge, respect a decline — and remember **only `init-direction`
+edits the Direction**: propose, never rewrite it yourself.
