@@ -62,7 +62,8 @@ config table by name (ignore emoji/case). For databases, take the UUID from
 `data-source-url` (`collection://<UUID>`) — **not** the database page id. If a database
 exposes **more than one `data-source-url`** (multi-source), don't guess: list them and ask
 which is the real store. For Daily Log, take the page `url` UUID. If a required child can't
-be matched (renamed/missing), mark it **unresolved** — never guess.
+be matched (renamed/missing), mark it **unresolved** — never guess. If **two** different
+pages match the same store name (e.g. two "Efforts"), ask which container is right.
 
 ### 5. Confirm before writing
 Show a table: logical name → matched name → resolved ID, plus any unresolved rows. Ask for
@@ -76,8 +77,9 @@ write — never edit the skill files or the preamble.
 
 ### 7. Verify
 Re-read `~/.claude/ts-pmo.local.md`; confirm all six rows are filled (or note any
-deferred). Smoke-test by fetching one written ID (e.g. `efforts_ds`) and confirming it
-resolves to the expected database. Report what you wrote.
+deferred). Smoke-test: fetch `efforts_ds` (confirm it resolves to the Efforts database) and
+`daily_log` (confirm it's a **page**, not a data source — the one structurally different
+entry, and the easiest to mis-copy). Report what you wrote.
 
 ### 8. Hand off
 Setup is done. Next: say **"set up my direction"** (`set-direction`), then **"create an

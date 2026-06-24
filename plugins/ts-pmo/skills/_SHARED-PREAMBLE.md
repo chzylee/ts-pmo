@@ -35,6 +35,13 @@ Notion, read that file and resolve each logical name to its ID:**
 stop and run `ts-pmo-setup`** (say *"set up ts-pmo"*). Never invent an ID. Because IDs live
 *only* in this one file, updating or re-installing the skills never disturbs your wiring.
 
+**Resolving a stored ID:** each value identifies a Notion database (or the Daily Log page).
+A **data-source UUID** (`collection://…`) is preferred, but a **database page id** works too
+— when an operation needs the `collection://` data source (searching a data source, building
+a view) and you only hold a page id, `fetch` it first to read its `data-source-url`. **If a
+resolved store is missing an expected property or select label** (the template was edited, or
+it's an older version), **stop and tell the user — never write to a mismatched schema.**
+
 ## The 3-tier model
 **🎯 Effort → 🧭 Work Stream (optional) → ✅ Work Item**, most general to most
 concrete. A Work Item may attach directly to an Effort; the Work Stream tier is

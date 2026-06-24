@@ -9,6 +9,10 @@ workspace. You now have a **🧰 TS PMO** container holding your 🎯 Efforts / 
 Streams / ✅ Work Items databases, the 🎯 Efforts Board, the 📋 Todo boards, 🧠 Core
 Context, 📓 Work Log, 📅 Daily Log, and the 📖 User Guide.
 
+> Works on a **free Notion plan**. One caveat: the per-Effort boards `create` builds need a
+> connector that can create views — if yours can't, board-building degrades gracefully and
+> you add them by hand.
+
 ## 2. Connect Claude Code to Notion
 Add the Notion connector / MCP so Claude can read and write your copy.
 

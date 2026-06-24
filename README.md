@@ -85,7 +85,7 @@ Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`)
 
 ## Uninstalling
 - **Plugin install:** `/plugin uninstall ts-pmo` (terminal) or remove it from the desktop **+ → Plugins → Manage**.
-- **Drop-in install:** delete the TS PMO skill folders and `_SHARED-PREAMBLE.md` from `~/.claude/skills/`.
+- **Drop-in install:** from `~/.claude/skills/`, delete the folders `set-direction`, `create`, `plan`, `work-review`, `debrief`, `resync`, `ts-pmo-setup` and the file `_SHARED-PREAMBLE.md`; then delete `~/.claude/ts-pmo.local.md`.
 
 Your Notion workspace is yours — uninstalling the skills leaves it untouched.
 
@@ -95,6 +95,7 @@ Your Notion workspace is yours — uninstalling the skills leaves it untouched.
 - **Skills don't show up after installing** → start a **new chat**; skills load at the start of a session.
 - **`set up ts-pmo` can't find your template** → when asked, paste your duplicated **TS PMO** container page's link (Notion → ••• → Copy link).
 - **A per-Effort board didn't get built** → your Notion connector may not allow programmatic views; add the board by hand using the filter the skill prints.
+- **A skill stops, saying a property/field is missing** → your template was edited or is an older version; the skill won't guess against a mismatched schema. Re-add the property, or re-duplicate the template.
 
 ## Status
 **Canonical repo + marketplace:** `chzylee/ts-pmo` (MIT-licensed). Early / build-in-public. First-run wiring is handled by the **`ts-pmo-setup`** skill —

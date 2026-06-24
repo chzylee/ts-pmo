@@ -10,6 +10,7 @@ description: Interview the user about their priorities and what productive use o
 Targets:
 - efforts_ds   (🎯 Efforts)
 - items_ds     (✅ Work Items — for the Todo boards)
+- worklog_ds   (📓 Work Log — recent distribution, for the drift / refresh check)
 - core_context (🧠 Core Context)
 
 Convention: **User Sovereignty** — draft, show, edit until approved, then write. This is the analog of an injected builder profile: short, high-signal, read on every skill run.
