@@ -34,7 +34,7 @@ A database's **data-source UUID** is the part after `collection://` in its
 
 ### 0. Locate the skill files
 The **rewrite set is exactly these 7 files**: `_SHARED-PREAMBLE.md` and the six core
-skills — `init-direction`, `create`, `plan`, `work-review`, `debrief`, `resync`. Locate
+skills — `set-direction`, `create`, `plan`, `work-review`, `debrief`, `resync`. Locate
 them **by name**. **Do NOT glob "every file containing `{{`", and never include this file
 (`ts-pmo-setup/SKILL.md`)** — its `{{…}}` tokens are documentation (the map above) and
 must stay literal; rewriting them would corrupt this skill. If the six core skills +
@@ -82,7 +82,7 @@ deferred). Smoke-test by fetching one written ID (e.g. Efforts) and confirming i
 resolves to the expected database. Report what changed.
 
 ### 8. Hand off
-Setup is done. Next: say **"set up my direction"** (`init-direction`), then **"create an
+Setup is done. Next: say **"set up my direction"** (`set-direction`), then **"create an
 effort."** Point the user to the **User Guide → Quick Start** inside their template.
 
 ## Re-pointing (already set up, new IDs)
@@ -108,4 +108,4 @@ unresolved.
 - **M4 — fully manual.** They open `_SHARED-PREAMBLE.md` and each skill's `Targets:`
   block and replace each `{{…}}` themselves. Point them at `INSTALL.md` for the same map.
 
-Always end by confirming the result and the next step (`init-direction`).
+Always end by confirming the result and the next step (`set-direction`).

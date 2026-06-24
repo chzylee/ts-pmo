@@ -16,7 +16,7 @@ into tracked progress. Every skill **recommends and asks before it writes** — 
 clerical work is the agent's, the judgment stays yours.
 
 ## The skills, by job
-- **Learns your goals** → `init-direction` (writes your Direction — the yardstick).
+- **Learns your goals** → `set-direction` (writes your Direction — the yardstick).
 - **Keeps you accountable** → `plan` (a feasible day or week), `work-review` (a quick hygiene scan or a full accountability audit).
 - **Automates the busywork** → `create` (any tier → a fully-formed, goal-checked item), `debrief` (log a Claude session, move the board), `resync` (one-screen re-entry).
 
@@ -52,7 +52,7 @@ Talk to Claude Code in plain language — each skill triggers on what you say, a
 it needs, and **confirms before it writes**.
 
 **Set up (once)**
-- `"set up my direction"` → **init-direction** writes your Direction — the yardstick all planning and review measure against.
+- `"set up my direction"` → **set-direction** writes your Direction — the yardstick all planning and review measure against.
 
 **Create work (any tier)**
 - `"create an effort"` · `"create a work item"` → **create** builds a fully-formed Effort / Work Stream / Work Item (priority, impact, commitment, acceptance criteria) and checks it against your goals.

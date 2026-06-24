@@ -22,7 +22,7 @@ Targets:
 ## Procedure
 1. **Load the north star.** Read the **Direction** module in Core Context — it's the
    basis for judging priority, impact, and fit. **If there is no Direction module,
-   stop and route the user to `init-direction` first** — you can't populate well
+   stop and route the user to `set-direction` first** — you can't populate well
    without the yardstick. Also load existing Efforts (names + Effort-key options) for
    parent-matching and dedupe.
 2. **Determine the tier.** From the request: a long-term pursuit → **Effort**; a

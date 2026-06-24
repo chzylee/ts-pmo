@@ -63,7 +63,7 @@ string in the URL is that item's ID. Replace every placeholder below in
 | `{{CORE_CONTEXT_DS_ID}}` | 🧠 Core Context (database) |
 
 ## 5. First run
-- Say **"set up my direction"** → `init-direction` writes your Direction (the yardstick).
+- Say **"set up my direction"** → `set-direction` writes your Direction (the yardstick).
 - Say **"create an effort"** → `create` stands up your first pursuit + its board.
 - Then **"plan my day"**, work, and **"debrief this chat"** to log it.
 

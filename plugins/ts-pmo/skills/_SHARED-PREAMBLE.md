@@ -1,6 +1,6 @@
 # Shared preamble — TS PMO core skill suite
 
-The six core skills — `init-direction`, `create`, `plan`, `work-review`, `debrief`,
+The six core skills — `set-direction`, `create`, `plan`, `work-review`, `debrief`,
 `resync` — inherit this. Each SKILL.md restates the IDs it needs in its own
 `Targets:` block so it stays self-contained at runtime; this file is the single
 source of truth for the IDs, the working conventions, and the field semantics.
@@ -98,17 +98,34 @@ When a new Effort is created, add its name as a select option on **both**
 `ALTER COLUMN "Effort key" SET SELECT(...existing + new...)`). This is `create`'s
 job when the tier is Effort; it also builds that Effort's per-Effort board section.
 
-## Direction drift — watch for it
-The **Direction** module (Core Context) is the yardstick, but reality moves. Any skill
-that reads Direction should also run a **cheap drift check** and, on clear divergence,
-**surface a one-line nudge — never act**: *"Your Direction still ranks X #1, but [signal]
-— want to refresh it?"*, then hand to `init-direction`. Signals:
-- **Structural** — Efforts the ranking doesn't mention; an Effort it still ranks that's
-  now Shipped/Archived; the stated #1 isn't the one being worked.
-- **Allocation** — recent Work Log time-by-Effort contradicts the ranking (a starved #1;
-  a parked Effort quietly eating time). `work-review` audits this in depth.
-- **Stated** — the user says something this session that conflicts with the stored
-  Direction (a new north star, a re-prioritization, a "no" that became a "yes").
-- **Stale** — Direction unchanged for a long while though work continued.
-Keep it low-frequency — one nudge, respect a decline — and remember **only `init-direction`
-edits the Direction**: propose, never rewrite it yourself.
+## Direction drift — watchful, not naggy
+TS PMO is a **rote, obedient aide first**: give the user the benefit of the doubt and earn
+trust by *observing patterns over time*, not by interrupting. Accountability is still core —
+but over-nudging is more strenuous than helpful, and life moves fast. So any skill that
+reads Direction watches for drift and, **only on clear, high-magnitude or repeated
+divergence**, surfaces **one** low-pressure nudge (never an edit), then hands to
+`set-direction`.
+
+**Magnitude first.** Nudge on drift that's *large* (an ask flatly against the stated #1; a
+parked Effort eating most of the week) or *repeated* — not on every small deviation. Drift
+shows up as: **structural** (Efforts the ranking ignores; one it still ranks that's now
+Shipped/Archived; the stated #1 isn't what's being worked), **allocation** (Work-Log time
+contradicts the ranking — `work-review` audits this deeply), or **stated** (the user says
+something this session that conflicts with the stored Direction).
+
+**When it's fuzzy, walk this hierarchy:**
+1. *Fuzzy whether it's even drift (the ask reads roughly aligned)* → **benefit of the
+   doubt; stay quiet.**
+2. *Looks clearly misaligned, unclear if the user realizes* → **ask once, gently.** If they
+   show self-awareness ("yeah, on purpose"), drop it — don't push.
+3. *Unclear whether you'd be over-nudging* → **check `Last nudged` on the Direction module.**
+   Nudged within the last **~2 weeks** → trust the user, stay quiet. Longer gap → nudge.
+
+**State lives on the Direction module** (the central hub of user state):
+- `Last nudged: YYYY-MM-DD` — stamp it whenever you raise a drift nudge; it's the cadence
+  gate above (~2-week default).
+- `## Shifts` — a short log (last ~5) of when the Direction was reshaped + a one-line what.
+  `set-direction` appends here; if shifts are *frequent* (≈3+ in a few weeks) the direction
+  may be **thrashing** — that's its own signal to raise.
+
+Only `set-direction` edits the Direction — propose, never rewrite it yourself.
