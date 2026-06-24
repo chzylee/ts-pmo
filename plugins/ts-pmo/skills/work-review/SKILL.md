@@ -32,7 +32,7 @@ Read open Work Items + their Efforts; apply the cascade. Flag:
 - **Stale Doing** — items stuck in Doing.
 - **Orphans + malformed** — no Effort; missing Priority / Acceptance criteria; `3h+`
   not split.
-- **Effort-key drift** — Effort relation set but Effort key blank or mismatched.
+- **Effort-key drift** — Effort relation set but Effort key blank or mismatched (e.g. after an Effort was **renamed**: the relation follows, the key select does not). Offer to re-stamp the key and rename the stale select option.
 Present the shortlist; offer to fix on confirm. Nothing else.
 
 ## Full — adds the audit + distribution

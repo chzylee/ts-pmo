@@ -72,6 +72,10 @@ Effort, Priority, or Status instead.)
   sync with the Effort relation. It exists because the Notion API can filter a
   view by a select but **not** by a relation — so per-Effort boards are
   auto-generatable. Whenever you set the Effort relation, set Effort key too.
+  Because the key is the Effort's **name**, **Effort names must be unique**, and
+  **renaming an Effort** strands the old select option and every row still carrying it
+  (the relation auto-follows the rename; the select does not) — on rename, rename the
+  select option and re-stamp affected rows. `work-review` flags this drift.
 - **Status ladders are tier-specific** — never share one ladder across tiers:
   - Effort: `1 · Idea → 2 · Active → 3 · On hold → 4 · Shipped → 5 · Archived`
   - Work Stream: `1 · Idea → 2 · Active → 3 · On hold → 4 · Done → 5 · Archived`

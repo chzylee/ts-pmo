@@ -60,8 +60,10 @@ walk up its `ancestor-path` to the container — don't make them redo it.
 ### 4. Resolve the IDs
 Fetch the container. From its child `<database>` / `<page>` blocks, match each row of the
 placeholder map by name (ignore emoji/case). For databases, take the UUID from
-`data-source-url` (`collection://<UUID>`); for Daily Log, take the page `url` UUID. If a
-required child can't be matched (renamed/missing), mark it **unresolved** — never guess.
+`data-source-url` (`collection://<UUID>`) — **not** the database page id. If a database
+exposes **more than one `data-source-url`** (multi-source), don't guess: list them and ask
+which is the real store. For Daily Log, take the page `url` UUID. If a required child
+can't be matched (renamed/missing), mark it **unresolved** — never guess.
 
 ### 5. Confirm before writing
 Show a table: placeholder → matched name → resolved ID, plus any unresolved rows. Ask for

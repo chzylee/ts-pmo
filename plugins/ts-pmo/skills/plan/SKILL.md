@@ -44,10 +44,11 @@ Targets:
 5. **Show the plan.** List the chosen items with Effort, Commitment, running total vs.
    capacity, and what you deferred and why. The user edits freely — this is their
    starting point.
-6. **Stage it** (on confirm). Set the **Plan** tag on the chosen items (`Today` for a
-   day, `This week` for a week) so the **📋 Todo** boards populate. **Clear stale tags
-   first** — items previously tagged for this horizon but not in the new plan get their
-   Plan tag emptied. Optionally flip chosen items to **Doing**.
+6. **Stage it** (on confirm). **First list every item whose Plan tag this run would
+   clear** — previously tagged for this horizon but not in the new plan — in the confirm
+   step; some may be hand-set, so never empty a tag silently. On confirmation, clear
+   those, then set the **Plan** tag on the chosen items (`Today` for a day, `This week`
+   for a week) so the **📋 Todo** boards populate. Optionally flip chosen items to **Doing**.
 7. **Log** (optional). Offer one Work Log row (Kind = Plan, Effort relation set)
    capturing the plan.
 

@@ -97,7 +97,7 @@ Your Notion workspace is yours — uninstalling the skills leaves it untouched.
 - **A per-Effort board didn't get built** → your Notion connector may not allow programmatic views; add the board by hand using the filter the skill prints.
 
 ## Status
-Early / build-in-public. First-run wiring is handled by the **`ts-pmo-setup`** skill —
+**Canonical repo + marketplace:** `chzylee/ts-pmo` (MIT-licensed). Early / build-in-public. First-run wiring is handled by the **`ts-pmo-setup`** skill —
 it auto-detects your duplicated template through the Notion connector and writes the IDs
 in, falling back to a guided manual repoint. An **`npx ts-pmo init`** variant may follow.
 
