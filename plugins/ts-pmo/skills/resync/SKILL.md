@@ -1,6 +1,6 @@
 ---
 name: resync
-description: One-screen re-entry on a single Effort — what it is, recent work, open items, next action. Use on "resync me on <effort>", "where did I leave off on <effort>", "step back into <effort>".
+description: Pick one Effort back up after time away. Gives a one-screen catch-up — what the Effort is, what you did recently, what's still open, and the single next action — so you can dive back in without digging through Notion. Use on "resync me on <effort>", "where did I leave off on <effort>", "catch me up on <effort>".
 ---
 
 # Resync → re-enter one Effort
