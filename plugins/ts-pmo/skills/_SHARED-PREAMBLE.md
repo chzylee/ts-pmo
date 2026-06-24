@@ -35,6 +35,13 @@ agreeableness; flag uncertainty plainly.
 
 The same IDs appear in each skill's `Targets:` block — repoint them there too.
 
+## Before you run — IDs must be wired
+Every skill's `Targets:` must hold real IDs. **If any Target still contains `{{…}}`, the
+skills aren't pointed at a workspace yet — stop and route the user to `ts-pmo-setup`**
+(say *"set up ts-pmo"*). Never use a `{{…}}` placeholder as a Notion ID. (`ts-pmo-setup`
+is the one skill that intentionally runs with placeholders present — it's what fills
+them.)
+
 ## The 3-tier model
 **🎯 Effort → 🧭 Work Stream (optional) → ✅ Work Item**, most general to most
 concrete. A Work Item may attach directly to an Effort; the Work Stream tier is

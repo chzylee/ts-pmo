@@ -33,11 +33,13 @@ A database's **data-source UUID** is the part after `collection://` in its
 ## Procedure
 
 ### 0. Locate the skill files
-Find every file under the TS PMO skills folder that still contains `{{` — that's
-`_SHARED-PREAMBLE.md` plus the core skills (`init-direction`, `create`, `plan`,
-`work-review`, `debrief`, `resync`). Those are what you'll rewrite. **Never rewrite
-this file (`ts-pmo-setup`)** — its placeholders are reference, not config. If no file
-contains `{{`, setup has already run — say so and stop unless the user asks to redo it.
+The **rewrite set is exactly these 7 files**: `_SHARED-PREAMBLE.md` and the six core
+skills — `init-direction`, `create`, `plan`, `work-review`, `debrief`, `resync`. Locate
+them **by name**. **Do NOT glob "every file containing `{{`", and never include this file
+(`ts-pmo-setup/SKILL.md`)** — its `{{…}}` tokens are documentation (the map above) and
+must stay literal; rewriting them would corrupt this skill. If the six core skills +
+preamble already contain no `{{`, setup has run — say so and stop, unless the user wants
+to re-point (see **Re-pointing** below).
 
 ### 1. Check the Notion connector
 Confirm the Notion MCP is connected (a trivial search/fetch succeeds). If it isn't, go
@@ -67,9 +69,10 @@ a go-ahead. If some rows are unresolved, offer to write the resolved ones now an
 the rest to the manual checklist, or pause so they can fix names first.
 
 ### 6. Write the IDs
-For each resolved placeholder, replace **every** occurrence with its real ID across the
-located files (preamble + core skills) — replace-all, exact token match. Do not touch
-this setup skill's file.
+For each resolved placeholder, replace **every** occurrence with its real ID across
+**only the 7-file rewrite set from step 0** (preamble + the six core skills) — replace-all,
+exact token match. **Never edit this file (`ts-pmo-setup`)**, even though it contains the
+same tokens.
 
 ### 7. Verify
 Re-scan those files: confirm no `{{` placeholders remain (except any intentionally
@@ -79,6 +82,13 @@ resolves to the expected database. Report what changed.
 ### 8. Hand off
 Setup is done. Next: say **"set up my direction"** (`init-direction`), then **"create an
 effort."** Point the user to the **User Guide → Quick Start** inside their template.
+
+## Re-pointing (already set up, new IDs)
+If the skills already hold real IDs but the user re-duplicated the template or switched
+workspaces, there are **no `{{…}}` left to find** — don't refuse. Treat the current real
+IDs as the things to replace: resolve the new IDs (steps 2–5), then across the 7-file set
+swap each store's **old** ID for its **new** one. Confirm the old→new mapping before
+writing.
 
 ## Manual fallback
 Use when: no connector, fetch/search fails, the user prefers by hand, or some IDs stayed
