@@ -32,12 +32,16 @@ Full steps in **[INSTALL.md](INSTALL.md)**. In short:
 
 1. **Duplicate the Notion template** → `<TEMPLATE_DUPLICATE_LINK>`
 2. **Connect Claude Code to Notion** (the Notion connector / MCP).
-3. **Install the skills:**
-   ```
-   /plugin marketplace add chzylee/ts-pmo
-   /plugin install ts-pmo
-   ```
-   (Or drop `plugins/ts-pmo/skills/*` into `~/.claude/skills/`.)
+3. **Install the skills** (they're Agent Skills — no `/plugin` needed):
+   - **Easiest (desktop app / web / terminal):** paste into Claude Code — *"Install the
+     TS PMO skills: clone https://github.com/chzylee/ts-pmo and copy its
+     `plugins/ts-pmo/skills/` contents into my `~/.claude/skills/` folder, then list what
+     you installed"* — then start a new chat.
+   - **Terminal CLI:** `claude plugin marketplace add chzylee/ts-pmo` → `claude plugin
+     install ts-pmo@chzylee/ts-pmo`.
+
+   The in-app `/plugin` command works **only in the terminal CLI**, not the desktop app
+   or web — use the paste-in method there.
 4. **Wire the skills to your copy** — say **"set up ts-pmo"**. The `ts-pmo-setup` skill
    auto-detects your template's databases and fills in the IDs for you (guided manual
    fallback in INSTALL.md). Then say **"set up my direction."**

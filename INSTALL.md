@@ -13,12 +13,29 @@ Context, 📓 Work Log, 📅 Daily Log, and the 📖 User Guide.
 Add the Notion connector / MCP so Claude can read and write your copy.
 
 ## 3. Install the skills
+TS PMO is a set of **Agent Skills**, so it does **not** need the `/plugin` command —
+which only works in the terminal CLI, not the Claude Code desktop app or web. Use
+whichever path fits:
+
+**Easiest — desktop app, web, or terminal; nothing to learn.** Paste this into Claude
+Code and let it do the install:
+
+> *Install the TS PMO skills: clone `https://github.com/chzylee/ts-pmo` (or download it)
+> and copy everything inside its `plugins/ts-pmo/skills/` folder — the
+> `_SHARED-PREAMBLE.md` file and every skill subfolder — into my `~/.claude/skills/`
+> directory, creating it if it doesn't exist. Then list what you installed.*
+
+Then **start a new chat** so the skills load. (Skills are read at the start of a
+session.)
+
+**Terminal (Claude Code CLI):**
 ```
-/plugin marketplace add chzylee/ts-pmo
-/plugin install ts-pmo
+claude plugin marketplace add chzylee/ts-pmo
+claude plugin install ts-pmo@chzylee/ts-pmo
 ```
-Or, drop-in: copy `plugins/ts-pmo/skills/*` into `~/.claude/skills/` (this also brings
-`_SHARED-PREAMBLE.md`, which the skills read).
+These run in any terminal, and the plugin then also appears in the desktop app (they
+share `~/.claude`). Note: the **in-app `/plugin` slash command is CLI-only** — on the
+desktop app or web, use the paste-in method above.
 
 ## 4. Wire the skills to YOUR template (one-time) — `ts-pmo-setup`
 The skills ship with **placeholder IDs** like `{{EFFORTS_DS_ID}}`; they need your copy's
