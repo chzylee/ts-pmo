@@ -56,7 +56,7 @@ it needs, and **confirms before it writes**.
 - `"plan my day"` · `"plan my week"` → **plan** builds a realistic plan by effective priority, makes you cut scope if over-committed, and stages it on the 📋 Todo boards.
 
 **Log + stay honest**
-- `"debrief this chat"` → **debrief** logs the session to the Work Log and moves the board.
+- `"debrief this chat"` → **debrief** logs the session to the Work Log (by task) + Daily Log (by date) and moves the board.
 - `"review my work"` · `"audit my work"` → **work-review** runs a quick hygiene scan or a full accountability audit (what's neglected vs. parked, where time went).
 - `"resync me on <effort>"` → **resync** gives a one-screen re-entry on an effort.
 

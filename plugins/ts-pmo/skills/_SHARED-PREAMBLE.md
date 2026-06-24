@@ -1,4 +1,4 @@
-# Shared preamble — PM-OS core skill suite
+# Shared preamble — TS PMO core skill suite
 
 The six core skills — `init-direction`, `create`, `plan`, `work-review`, `debrief`,
 `resync` — inherit this. Each SKILL.md restates the IDs it needs in its own
@@ -29,9 +29,9 @@ agreeableness; flag uncertainty plainly.
 | 🧭 Work Streams | `{{WORK_STREAMS_DS_ID}}` |
 | ✅ Work Items | `{{WORK_ITEMS_DS_ID}}` |
 | 📓 Work Log | `{{WORK_LOG_DS_ID}}` |
+| 📅 Daily Log *(a page, not a DB)* | `{{DAILY_LOG_PAGE_ID}}` |
 | 🧠 Core Context | `{{CORE_CONTEXT_DS_ID}}` |
 | ⚡ Leverage Board | `{{LEVERAGE_BOARD_DS_ID}}` |
-| 🛠 Skill Index | `{{SKILL_INDEX_DS_ID}}` |
 
 The same IDs appear in each skill's `Targets:` block — repoint them there too.
 

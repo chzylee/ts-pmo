@@ -5,9 +5,9 @@ one-time **repoint** that connects them. ~10 minutes.
 
 ## 1. Duplicate the Notion template
 Open **`<TEMPLATE_DUPLICATE_LINK>`** and click **Duplicate** to copy it into your
-workspace. You now have your own 🎯 Efforts / 🧭 Work Streams / ✅ Work Items databases,
-the Efforts Board, the 📋 Todo boards, 🧠 Core Context, 📓 Work Log, ⚡ Leverage Board,
-🛠 Skill Index, and the User Guide.
+workspace. You now have a **🧰 TS PMO** container holding your 🎯 Efforts / 🧭 Work
+Streams / ✅ Work Items databases, the 🎯 Efforts Board, the 📋 Todo boards, 🧠 Core
+Context, 📓 Work Log, 📅 Daily Log, ⚡ Leverage Board, and the 📖 User Guide.
 
 ## 2. Connect Claude Code to Notion
 Add the Notion connector / MCP so Claude can read and write your copy.
@@ -39,9 +39,9 @@ it):
 | `{{WORK_STREAMS_DS_ID}}` | 🧭 Work Streams |
 | `{{WORK_ITEMS_DS_ID}}` | ✅ Work Items |
 | `{{WORK_LOG_DS_ID}}` | 📓 Work Log |
+| `{{DAILY_LOG_PAGE_ID}}` | 📅 Daily Log — a **page**, not a DB (use its page ID) |
 | `{{CORE_CONTEXT_DS_ID}}` | 🧠 Core Context |
 | `{{LEVERAGE_BOARD_DS_ID}}` | ⚡ Leverage Board |
-| `{{SKILL_INDEX_DS_ID}}` | 🛠 Skill Index |
 
 > Roadmap: an **`npx ts-pmo init`** wizard will do this repoint for you (paste your
 > template's IDs once, it rewrites the files).

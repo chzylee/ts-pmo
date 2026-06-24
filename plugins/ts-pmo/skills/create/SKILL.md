@@ -57,8 +57,10 @@ Targets:
      the Effort-key select set together**.
    - **Effort →** create in efforts_ds; **register its Effort key** (`update-data-source`:
      `ALTER COLUMN "Effort key" SET SELECT(...existing + new...)` on items_ds AND
-     streams_ds); **build its per-Effort board** (`create-view`, parent_page_id = the
-     new Effort's page, data_source_id = items_ds): *Items · by Status* (GROUP BY
+     streams_ds); then **ask where its per-Effort board should live** — default the new
+     Effort's own page; or a shared boards area / container page the user names — and
+     **build it there** (`create-view`, parent_page_id = that page, data_source_id =
+     items_ds): *Items · by Status* (GROUP BY
      Status); *Active items · by Priority* and *Active items · by Impact* (FILTER
      "Effort key" = &lt;name&gt; AND "Status" != "3 · Done" — use the exact numbered
      Status label from the schema).
