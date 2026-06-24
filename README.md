@@ -1,11 +1,11 @@
-# TS PMO — Task Scribe · Project Management Ops
+# TS PMO — Task Steward · Project Management Ops
 
 **The operating layer for Claude-augmented work.** TS PMO is a project-management
 **agent** for **Claude Code**, backed by a Notion template. It learns your goals,
 keeps you accountable, and runs your work management — so your time goes to building
 *with* Claude, not managing around it.
 
-> *"this shit's pissing me off"* → **T**ask **S**cribe · **P**roject **M**anagement **O**ps. The fix for task admin.
+> *"this shit's pissing me off"* → **T**ask **S**teward · **P**roject **M**anagement **O**ps. The fix for task admin.
 
 ## Two parts, one system
 1. **The Claude skill suite (6 skills)** — the agent that runs your board.

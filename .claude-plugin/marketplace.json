@@ -3,7 +3,7 @@
   "owner": {
     "name": "Noah Lee"
   },
-  "description": "TS PMO (Task Scribe · Project Management Ops) — a Notion-backed project-management agent for Claude Code.",
+  "description": "TS PMO (Task Steward · Project Management Ops) — a Notion-backed project-management agent for Claude Code.",
   "plugins": [
     {
       "name": "ts-pmo",
