@@ -1,0 +1,7 @@
+{
+  "name": "ts-pmo",
+  "description": "TS PMO (Task Scribe · Project Management Ops) — a project-management agent for Claude Code, backed by a Notion template. It learns your goals, keeps you accountable, and runs your work management. Skills: init-direction, create, plan, work-review, debrief, resync. Every skill recommends and asks before it writes.",
+  "author": {
+    "name": "Noah Lee"
+  }
+}
