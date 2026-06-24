@@ -9,6 +9,7 @@ description: Pick one Effort back up after time away. Gives a one-screen catch-u
 
 Targets:
 - efforts_ds   {{EFFORTS_DS_ID}}   (🎯 Efforts)
+- streams_ds   {{WORK_STREAMS_DS_ID}}   (🧭 Work Streams)
 - items_ds     {{WORK_ITEMS_DS_ID}}   (✅ Work Items)
 - worklog_ds   {{WORK_LOG_DS_ID}}   (📓 Work Log)
 

@@ -81,7 +81,7 @@ The full walkthrough lives in the **User Guide** inside your duplicated Notion t
 - **One workspace per install** — pointing it at a different Notion workspace means re-running `ts-pmo-setup`.
 
 ## Updating
-Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`) to pull the latest. Re-run `ts-pmo-setup` only if the placeholder set changed. Updates never touch your Notion data.
+Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`) to pull the latest. **Re-installing overwrites your wired IDs with placeholders, so re-run `ts-pmo-setup` after any update** — it's fast, and re-pointing is supported. Updates never touch your Notion data.
 
 ## Uninstalling
 - **Plugin install:** `/plugin uninstall ts-pmo` (terminal) or remove it from the desktop **+ → Plugins → Manage**.
