@@ -41,10 +41,33 @@ Full steps in **[INSTALL.md](INSTALL.md)**. In short:
 4. **Repoint** the placeholder IDs to your template (INSTALL.md), then say
    **"set up my direction."**
 
+## Usage
+
+Talk to Claude Code in plain language — each skill triggers on what you say, asks what
+it needs, and **confirms before it writes**.
+
+**Set up (once)**
+- `"set up my direction"` → **init-direction** writes your Direction — the yardstick all planning and review measure against.
+
+**Create work (any tier)**
+- `"create an effort"` · `"create a work item"` → **create** builds a fully-formed Effort / Work Stream / Work Item (priority, impact, commitment, acceptance criteria) and checks it against your goals.
+
+**Run the day / week**
+- `"plan my day"` · `"plan my week"` → **plan** builds a realistic plan by effective priority, makes you cut scope if over-committed, and stages it on the 📋 Todo boards.
+
+**Log + stay honest**
+- `"debrief this chat"` → **debrief** logs the session to the Work Log and moves the board.
+- `"review my work"` · `"audit my work"` → **work-review** runs a quick hygiene scan or a full accountability audit (what's neglected vs. parked, where time went).
+- `"resync me on <effort>"` → **resync** gives a one-screen re-entry on an effort.
+
+**The rhythm** — daily: `plan my day` → work the Today board (To do → Doing → Done) → `debrief this chat`. Weekly: `plan my week`, then `work-review`.
+
+The full walkthrough lives in the **User Guide** inside your duplicated Notion template.
+
 ## Status
 Early / build-in-public. Today the skills are repointed to your Notion IDs by hand
 (see INSTALL); an **`npx ts-pmo init`** wizard to automate that one-time repoint is on
 the roadmap.
 
 ## License
-TBD.
+**MIT** — free and open. See [LICENSE](LICENSE).
