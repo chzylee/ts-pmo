@@ -9,7 +9,7 @@ keeps you accountable, and runs your work management — so your time goes to bu
 
 ## Two parts, one system
 1. **The Claude skill suite (6 skills)** — the agent that runs your board.
-2. **The Notion template** — the system of record. **[Duplicate it →](<TEMPLATE_DUPLICATE_LINK>)**
+2. **The Notion template** — the system of record. **[Duplicate it →](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)**
 
 The skills live where you already work with Claude; `debrief` turns a Claude session
 into tracked progress. Every skill **recommends and asks before it writes** — the
@@ -30,7 +30,7 @@ always sort correctly.
 ## Install
 Full steps in **[INSTALL.md](INSTALL.md)**. In short:
 
-1. **Duplicate the Notion template** → `<TEMPLATE_DUPLICATE_LINK>`
+1. **Duplicate the Notion template** → **[open it here](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)**
 2. **Connect Claude Code to Notion** (the Notion connector / MCP).
 3. **Install the skills** (they're Agent Skills — no `/plugin` needed):
    - **Easiest (desktop app / web / terminal):** paste into Claude Code — *"Install the
@@ -63,7 +63,7 @@ it needs, and **confirms before it writes**.
 **Log + stay honest**
 - `"debrief this chat"` → **debrief** logs the session to the Work Log (by task) + Daily Log (by date) and moves the board.
 - `"review my work"` · `"audit my work"` → **work-review** runs a quick hygiene scan or a full accountability audit (what's neglected vs. parked, where time went).
-- `"resync me on <effort>"` → **resync** gives a one-screen re-entry on an effort.
+- `"resync me on <Effort>"` → **resync** catches you up on an Effort after time away — recent work, what's open, the next action.
 
 **The rhythm** — daily: `plan my day` → work the Today board (To do → Doing → Done) → `debrief this chat`. Weekly: `plan my week`, then `work-review`.
 

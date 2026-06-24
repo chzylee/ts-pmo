@@ -4,7 +4,7 @@ TS PMO has two halves — the **skills** (Claude Code) and a **Notion template**
 one-time **repoint** that connects them. ~10 minutes.
 
 ## 1. Duplicate the Notion template
-Open **`<TEMPLATE_DUPLICATE_LINK>`** and click **Duplicate** to copy it into your
+Open the **[TS PMO template](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)** and click **Duplicate** to copy it into your
 workspace. You now have a **🧰 TS PMO** container holding your 🎯 Efforts / 🧭 Work
 Streams / ✅ Work Items databases, the 🎯 Efforts Board, the 📋 Todo boards, 🧠 Core
 Context, 📓 Work Log, 📅 Daily Log, and the 📖 User Guide.
