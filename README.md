@@ -38,8 +38,9 @@ Full steps in **[INSTALL.md](INSTALL.md)**. In short:
    /plugin install ts-pmo
    ```
    (Or drop `plugins/ts-pmo/skills/*` into `~/.claude/skills/`.)
-4. **Repoint** the placeholder IDs to your template (INSTALL.md), then say
-   **"set up my direction."**
+4. **Wire the skills to your copy** — say **"set up ts-pmo"**. The `ts-pmo-setup` skill
+   auto-detects your template's databases and fills in the IDs for you (guided manual
+   fallback in INSTALL.md). Then say **"set up my direction."**
 
 ## Usage
 
@@ -65,9 +66,9 @@ it needs, and **confirms before it writes**.
 The full walkthrough lives in the **User Guide** inside your duplicated Notion template.
 
 ## Status
-Early / build-in-public. Today the skills are repointed to your Notion IDs by hand
-(see INSTALL); an **`npx ts-pmo init`** wizard to automate that one-time repoint is on
-the roadmap.
+Early / build-in-public. First-run wiring is handled by the **`ts-pmo-setup`** skill —
+it auto-detects your duplicated template through the Notion connector and writes the IDs
+in, falling back to a guided manual repoint. An **`npx ts-pmo init`** variant may follow.
 
 ## License
 **MIT** — free and open. See [LICENSE](LICENSE).

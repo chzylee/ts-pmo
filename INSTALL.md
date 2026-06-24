@@ -7,7 +7,7 @@ one-time **repoint** that connects them. ~10 minutes.
 Open **`<TEMPLATE_DUPLICATE_LINK>`** and click **Duplicate** to copy it into your
 workspace. You now have a **🧰 TS PMO** container holding your 🎯 Efforts / 🧭 Work
 Streams / ✅ Work Items databases, the 🎯 Efforts Board, the 📋 Todo boards, 🧠 Core
-Context, 📓 Work Log, 📅 Daily Log, ⚡ Leverage Board, and the 📖 User Guide.
+Context, 📓 Work Log, 📅 Daily Log, and the 📖 User Guide.
 
 ## 2. Connect Claude Code to Notion
 Add the Notion connector / MCP so Claude can read and write your copy.
@@ -20,31 +20,30 @@ Add the Notion connector / MCP so Claude can read and write your copy.
 Or, drop-in: copy `plugins/ts-pmo/skills/*` into `~/.claude/skills/` (this also brings
 `_SHARED-PREAMBLE.md`, which the skills read).
 
-## 4. Repoint the skills to YOUR template (one-time)
-The skills ship with **placeholder IDs** like `{{EFFORTS_DS_ID}}`. Replace each with the
-real data-source ID from your duplicated template.
+## 4. Wire the skills to YOUR template (one-time) — `ts-pmo-setup`
+The skills ship with **placeholder IDs** like `{{EFFORTS_DS_ID}}`; they need your copy's
+real IDs before they can read or write Notion. Let the setup skill do it:
 
-**Find an ID:** open a database as a full page in Notion → **•••** → **Copy link**. The
-32-character hex string in the URL is the database ID — use it for that database's
-placeholder. (These are single-source databases, so the database ID is what the skills
-need.)
+> **Say "set up ts-pmo".** The **`ts-pmo-setup`** skill finds your duplicated template
+> through the Notion connector, matches each database, shows you the IDs it resolved, and
+> (on your OK) writes them into `_SHARED-PREAMBLE.md` and every skill's `Targets:` block.
+> If it can't auto-detect, it walks you through a manual repoint — you can even paste the
+> IDs and let it do the file edits.
 
-Replace every placeholder below in **`plugins/ts-pmo/skills/_SHARED-PREAMBLE.md`** *and*
-in each skill's `Targets:` block (a find-and-replace across `plugins/ts-pmo/skills/` does
-it):
+### Manual fallback
+If you'd rather do it by hand (or the connector isn't available): open each database (or
+the Daily Log page) as a full page in Notion → **•••** → **Copy link**; the 32-char hex
+string in the URL is that item's ID. Replace every placeholder below in
+**`plugins/ts-pmo/skills/_SHARED-PREAMBLE.md`** *and* each skill's `Targets:` block:
 
-| Placeholder | Your database |
+| Placeholder | Your template item |
 |---|---|
-| `{{EFFORTS_DS_ID}}` | 🎯 Efforts |
-| `{{WORK_STREAMS_DS_ID}}` | 🧭 Work Streams |
-| `{{WORK_ITEMS_DS_ID}}` | ✅ Work Items |
-| `{{WORK_LOG_DS_ID}}` | 📓 Work Log |
+| `{{EFFORTS_DS_ID}}` | 🎯 Efforts (database) |
+| `{{WORK_STREAMS_DS_ID}}` | 🧭 Work Streams (database) |
+| `{{WORK_ITEMS_DS_ID}}` | ✅ Work Items (database) |
+| `{{WORK_LOG_DS_ID}}` | 📓 Work Log (database) |
 | `{{DAILY_LOG_PAGE_ID}}` | 📅 Daily Log — a **page**, not a DB (use its page ID) |
-| `{{CORE_CONTEXT_DS_ID}}` | 🧠 Core Context |
-| `{{LEVERAGE_BOARD_DS_ID}}` | ⚡ Leverage Board |
-
-> Roadmap: an **`npx ts-pmo init`** wizard will do this repoint for you (paste your
-> template's IDs once, it rewrites the files).
+| `{{CORE_CONTEXT_DS_ID}}` | 🧠 Core Context (database) |
 
 ## 5. First run
 - Say **"set up my direction"** → `init-direction` writes your Direction (the yardstick).

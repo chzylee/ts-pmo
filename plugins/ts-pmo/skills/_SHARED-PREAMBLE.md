@@ -19,9 +19,10 @@ Notion change. Present options and let the user decide. Accuracy over
 agreeableness; flag uncertainty plainly.
 
 ## Canonical data-source IDs
-> **⚠️ First-run setup:** these are placeholders. Replace each `{{…}}` with the matching
-> data-source ID from **your** duplicated Notion template (see `INSTALL.md`). The skills
-> can't read or write your workspace until you do.
+> **⚠️ First-run setup:** these are placeholders. Run the **`ts-pmo-setup`** skill once
+> (say *"set up ts-pmo"*) to fill them with **your** template's real IDs automatically —
+> or repoint by hand via `INSTALL.md`. The skills can't read or write your workspace
+> until this is done.
 
 | Store | data-source ID |
 |---|---|
@@ -31,7 +32,6 @@ agreeableness; flag uncertainty plainly.
 | 📓 Work Log | `{{WORK_LOG_DS_ID}}` |
 | 📅 Daily Log *(a page, not a DB)* | `{{DAILY_LOG_PAGE_ID}}` |
 | 🧠 Core Context | `{{CORE_CONTEXT_DS_ID}}` |
-| ⚡ Leverage Board | `{{LEVERAGE_BOARD_DS_ID}}` |
 
 The same IDs appear in each skill's `Targets:` block — repoint them there too.
 
