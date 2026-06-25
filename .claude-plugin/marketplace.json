@@ -8,7 +8,7 @@
     {
       "name": "ts-pmo",
       "source": "./plugins/ts-pmo",
-      "description": "TS PMO project-management skills: set-direction · create · plan · work-review · debrief · resync, plus ts-pmo-setup (first-run wiring)."
+      "description": "TS PMO project-management skills: set-direction · create · surface-effort · plan · work-review · debrief · resync, plus ts-pmo-setup (first-run wiring)."
     }
   ]
 }

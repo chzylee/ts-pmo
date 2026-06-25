@@ -8,7 +8,7 @@ keeps you accountable, and runs your work management — so your time goes to bu
 > *"this shit's pissing me off"* → **T**ask **S**teward · **P**roject **M**anagement **O**ps. The fix for task admin.
 
 ## Two parts, one system
-1. **The Claude skill suite (6 core skills + a one-time setup)** — the agent that runs your board.
+1. **The Claude skill suite (7 core skills + a one-time setup)** — the agent that runs your board.
 2. **The Notion template** — the system of record. **[Duplicate it →](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)**
 
 The skills live where you already work with Claude; `debrief` turns a Claude session
@@ -18,7 +18,7 @@ clerical work is the agent's, the judgment stays yours.
 ## The skills, by job
 - **Learns your goals** → `set-direction` (writes your Direction — the yardstick).
 - **Keeps you accountable** → `plan` (a feasible day or week), `work-review` (a quick hygiene scan or a full accountability audit).
-- **Automates the busywork** → `create` (any tier → a fully-formed, goal-checked item), `debrief` (log a Claude session, move the board), `resync` (one-screen re-entry).
+- **Automates the busywork** → `create` (any tier → a fully-formed, goal-checked item), `surface-effort` (give an Effort its own page + boards, where you want them), `debrief` (log a Claude session, move the board), `resync` (one-screen re-entry).
 
 ## The model
 🎯 **Effort** (Epic) → 🧭 Work Stream (optional) → ✅ Work Item. Opinionated fields —
@@ -56,6 +56,7 @@ it needs, and **confirms before it writes**.
 
 **Create work (any tier)**
 - `"create an effort"` · `"create a work item"` → **create** builds a fully-formed Effort / Work Stream / Work Item (priority, impact, commitment, acceptance criteria) and checks it against your goals.
+- `"create a page for my <Effort> effort"` → **surface-effort** gives an Effort its own page — linked Work-Stream / Work-Item views + board sub-pages (Impact surfaced) — at a location you choose (e.g. top-level).
 
 **Run the day / week**
 - `"plan my day"` · `"plan my week"` → **plan** builds a realistic plan by effective priority, makes you cut scope if over-committed, and stages it on the 📋 Todo boards.

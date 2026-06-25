@@ -1,7 +1,7 @@
 # Shared preamble — TS PMO core skill suite
 
-The six core skills — `set-direction`, `create`, `plan`, `work-review`, `debrief`,
-`resync` — inherit this file: the working conventions, the field semantics, and how to
+The seven core skills — `set-direction`, `create`, `surface-effort`, `plan`,
+`work-review`, `debrief`, `resync` — inherit this file: the working conventions, the field semantics, and how to
 resolve your workspace IDs (next section). Each skill's `Targets:` block names the logical
 stores it touches; the real IDs live in one config file, never in the skills.
 

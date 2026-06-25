@@ -57,17 +57,12 @@ Targets:
      the Effort-key select set together**.
    - **Effort →** create in efforts_ds; **register its Effort key** (`update-data-source`:
      `ALTER COLUMN "Effort key" SET SELECT(...existing + new...)` on items_ds AND
-     streams_ds); then **ask where its per-Effort board should live** — default the new
-     Effort's own page; or a shared boards area / container page the user names — and
-     **build it there** (`create-view`, parent_page_id = that page, data_source_id =
-     items_ds): *Items · by Status* (GROUP BY Status); *Active items · by Priority* and
-     *Active items · by Impact* (FILTER "Effort key" = &lt;name&gt; AND "Status" != the
-     **Done** label read from the schema — never hardcode `3 · Done`).
-   - **Best-effort, not all-or-nothing:** if `ALTER COLUMN` or `create-view` isn't
-     available on the user's Notion plan, **don't fail the create** — the Effort row still
-     stands. Report what couldn't be done automatically (the Effort-key option and/or the
-     board) and hand the user the exact spec to add by hand (the select option to add; the
-     board's group + filter).
+     streams_ds). Then **offer to give it a viewable home** — hand to **`surface-effort`**,
+     which builds the Effort's own page (linked Work-Stream + Work-Item views + board
+     sub-pages, Impact surfaced) at a location the user picks.
+   - **Best-effort, not all-or-nothing:** if `ALTER COLUMN` isn't available on the user's
+     Notion plan, **don't fail the create** — the Effort row still stands; report the
+     Effort-key select option the user should add by hand.
 8. **Deliver + ask next.** Report the created item with its link, then ask what's next
    — add Work Items under this Effort, plan it into your day/week (`plan`), or create
    the next thing. Leave the user with a clear handle, not a dead end.
