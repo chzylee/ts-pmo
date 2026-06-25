@@ -81,7 +81,22 @@ deferred). Smoke-test: fetch `efforts_ds` (confirm it resolves to the Efforts da
 `daily_log` (confirm it's a **page**, not a data source — the one structurally different
 entry, and the easiest to mis-copy). Report what you wrote.
 
-### 8. Hand off
+### 8. Offer automatic capture (optional)
+TS PMO logs work from the current chat, your **git** history, and a **capture inbox**
+(`~/.claude/ts-pmo-inbox.md`). The inbox fills itself if you wire a one-line **SessionEnd
+hook**, so even sessions you forget to debrief leave a breadcrumb for the next `debrief` to
+sweep up. Offer to set it up (User Sovereignty — explain, then ask; it's optional, since git
+capture already works without it):
+   - **If yes:** copy the script for their OS from `plugins/ts-pmo/hooks/`
+     (`ts-pmo-capture.sh` for macOS/Linux/Git Bash, `ts-pmo-capture.ps1` for Windows) to
+     `~/.claude/`, then **merge** a `SessionEnd` hook into `~/.claude/settings.json` pointing
+     at it. **Read settings.json first and add to any existing `hooks` — never overwrite
+     other hooks.** Show the change before writing.
+   - **If they'd rather not manage a file:** offer the inline one-liner from
+     `plugins/ts-pmo/hooks/README.md` (timestamp + folder only, no git line).
+   - Full detail and both snippets live in **`plugins/ts-pmo/hooks/README.md`**.
+
+### 9. Hand off
 Setup is done. Next: say **"set up my direction"** (`set-direction`), then **"create an
 effort."** Point the user to the **User Guide → Quick Start** inside their template.
 

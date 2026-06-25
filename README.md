@@ -56,6 +56,19 @@ Talk to Claude Code like a person. Each skill triggers on what you say, and conf
 
 **The rhythm:** plan your day → work the board → debrief. Once a week, plan the week and run a review.
 
+## Capture that doesn't lean on your memory
+`debrief` pulls your work from three places, so days don't go missing:
+- **The current chat** — what you just did.
+- **Your git commits** — durable and timestamped, so build work is captured *even from
+  sessions you never debriefed*.
+- **A capture inbox** — an optional one-line **session-end hook** leaves a breadcrumb every
+  time a Claude Code session ends; the next `debrief` sweeps them up.
+
+And it's honest about its blind spot: from Claude Code it **can't read past conversations**,
+so git and the inbox are how that work still reaches Notion. The hook is optional —
+`set up ts-pmo` offers to wire it — and git capture works out of the box. Detail:
+**[hooks/README](plugins/ts-pmo/hooks/README.md)**.
+
 ## The model
 🎯 **Effort** (a top-level pursuit, like a JIRA epic) → 🧭 **Work Stream** (optional grouping)
 → ✅ **Work Item** (a task).
