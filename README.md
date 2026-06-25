@@ -97,8 +97,19 @@ what matters to *you* — TS PMO hands that part back, every time.
 - **Update:** re-install the skills to pull the latest. Your IDs live in
   `~/.claude/ts-pmo.local.md`, which updates never touch — so there's no re-setup, and your
   Notion data is never touched.
-- **Uninstall:** delete the TS PMO skill folders and `_SHARED-PREAMBLE.md` from
-  `~/.claude/skills/` (and `~/.claude/ts-pmo.local.md`). Your Notion stays yours.
+**Uninstall** — two ways, and either one leaves your Notion alone:
+
+- **Just say `uninstall ts-pmo`.** The `ts-pmo-uninstall` skill inventories everything it put
+  on your machine, confirms, then removes it — *including* the session-end hook in your
+  `settings.json` (it leaves any other hooks alone). Easiest, and it won't botch the hook.
+- **By hand** (no skill / no clone): from `~/.claude/` delete the skill folders
+  `set-direction`, `create`, `surface-effort`, `plan`, `work-review`, `debrief`, `resync`,
+  `ts-pmo-setup`, `ts-pmo-uninstall`, the file `_SHARED-PREAMBLE.md`, plus `ts-pmo.local.md`,
+  `ts-pmo-capture.sh` / `ts-pmo-capture.ps1`, and `ts-pmo-inbox.md`. Then open
+  `~/.claude/settings.json` and remove the `SessionEnd` hook that runs `ts-pmo-capture`.
+
+**Your Notion is yours.** Uninstalling never deletes your template or data — the connector
+can't, and we wouldn't. To remove it, move the TS PMO page to Trash in Notion yourself.
 
 ## If something's off
 - **"It can't find my databases" / a skill isn't wired** → run **`set up ts-pmo`** (your
