@@ -48,8 +48,10 @@ value is the Effort's name). No new databases.
 7. **Best-effort, not all-or-nothing.** If `create-view` isn't available on the user's Notion
    plan, don't fail — create the page, add whatever you can, and hand the user the exact
    specs for the rest (each view's group + filter + card properties) to add by hand.
-8. **Report** the new page with its link and what it contains, then offer to do the same for
-   the user's other Efforts.
+8. **Report** the new page with its link and what it contains. **Tell the user to toggle
+   Full width** on the Effort page and each board sub-page (Notion **•••** → **Full width**) —
+   the API can't set page width, so without it the boards hug the left of the default column.
+   Then offer to do the same for the user's other Efforts.
 
 ## Notes
 - **Don't duplicate.** If the Effort already has a page at that location, offer to **refresh**
