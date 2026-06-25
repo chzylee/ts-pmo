@@ -1,6 +1,6 @@
 ---
 name: ts-pmo-setup
-description: First-run setup for TS PMO — point the skills at YOUR duplicated Notion template by writing your six workspace IDs to ~/.claude/ts-pmo.local.md (the config the skills read). Detects the template automatically through the Notion connector and writes the config for you, with a guided manual fallback if anything is missing. Run once after installing; re-run to repoint. Use on "set up ts-pmo", "ts-pmo setup", "finish ts-pmo install", "connect ts-pmo to notion", "repoint ts-pmo".
+description: First-run setup for TS PMO — point the skills at YOUR duplicated Notion template by writing your six workspace IDs to ~/.claude/ts-pmo.local.md (the config the skills read). Detects the template automatically through the Notion connector, writes the config for you, and switches on automatic work-capture, with a guided manual fallback if anything is missing. Run once after installing; re-run to repoint. Use on "set up ts-pmo", "ts-pmo setup", "finish ts-pmo install", "connect ts-pmo to notion", "repoint ts-pmo".
 ---
 
 # TS PMO setup → write your workspace config
@@ -9,8 +9,9 @@ The one-time bridge between the installed skills and **your** duplicated templat
 skills don't hard-code IDs — they read them from **`~/.claude/ts-pmo.local.md`**. Until
 that file exists with your six real IDs, the skills can't read or write your workspace.
 This skill finds those IDs and writes that one file — and if it can't, it hands you an
-exact manual checklist. It touches **only** the config file; it never edits the skills, so
-updating or re-installing them can't clobber your wiring.
+exact manual checklist. It also switches on **automatic capture** (a session-end hook). It
+never edits the skill files or preamble, so updating or re-installing them can't clobber
+your wiring.
 
 **Goal: the user does as little as possible.** Prefer auto-detection; ask for at most one
 URL; fall back to manual only when auto truly can't proceed. **Confirm before writing**
@@ -81,20 +82,26 @@ deferred). Smoke-test: fetch `efforts_ds` (confirm it resolves to the Efforts da
 `daily_log` (confirm it's a **page**, not a data source — the one structurally different
 entry, and the easiest to mis-copy). Report what you wrote.
 
-### 8. Offer automatic capture (optional)
-TS PMO logs work from the current chat, your **git** history, and a **capture inbox**
-(`~/.claude/ts-pmo-inbox.md`). The inbox fills itself if you wire a one-line **SessionEnd
-hook**, so even sessions you forget to debrief leave a breadcrumb for the next `debrief` to
-sweep up. Offer to set it up (User Sovereignty — explain, then ask; it's optional, since git
-capture already works without it):
-   - **If yes:** copy the script for their OS from `plugins/ts-pmo/hooks/`
-     (`ts-pmo-capture.sh` for macOS/Linux/Git Bash, `ts-pmo-capture.ps1` for Windows) to
-     `~/.claude/`, then **merge** a `SessionEnd` hook into `~/.claude/settings.json` pointing
-     at it. **Read settings.json first and add to any existing `hooks` — never overwrite
-     other hooks.** Show the change before writing.
-   - **If they'd rather not manage a file:** offer the inline one-liner from
-     `plugins/ts-pmo/hooks/README.md` (timestamp + folder only, no git line).
-   - Full detail and both snippets live in **`plugins/ts-pmo/hooks/README.md`**.
+### 8. Turn on automatic capture (standard step — always do this)
+A complete setup includes this, so the user's work gets logged even on sessions they forget
+to debrief. **Just do it as a normal part of setup and tell the user in one plain line**
+(e.g. *"I'll also switch on automatic capture so nothing slips through, even if you forget to
+debrief"*) — they don't need the internals.
+   1. **Write the capture script** for their OS to `~/.claude/` — `ts-pmo-capture.ps1`
+      (Windows) or `ts-pmo-capture.sh` (macOS/Linux/Git Bash). Use the exact contents in
+      **Appendix A** (pure-ASCII as written — don't paraphrase). The Appendix is the source
+      of truth, so this works even if the cloned repo is no longer around.
+   2. **Merge a `SessionEnd` hook** into `~/.claude/settings.json` that runs it. **Read
+      settings.json first; add to any existing `hooks` block — never overwrite other hooks.**
+      The command:
+      - **Windows:** `powershell -NoProfile -ExecutionPolicy Bypass -File %USERPROFILE%\\.claude\\ts-pmo-capture.ps1`
+      - **macOS/Linux/Git Bash:** `bash ~/.claude/ts-pmo-capture.sh`
+   3. **Verify:** run the script once and confirm a `- [ ]` line lands in
+      `~/.claude/ts-pmo-inbox.md`.
+   4. If settings.json genuinely can't be written, don't block setup — tell the user the one
+      line to add and move on. (`debrief` still captures git + the current chat regardless.)
+The payoff: one breadcrumb per session lands in the inbox on its own, and `debrief` sweeps it
+up. Full internals: `plugins/ts-pmo/hooks/README.md`.
 
 ### 9. Hand off
 Setup is done. Next: say **"set up my direction"** (`set-direction`), then **"create an
@@ -116,3 +123,72 @@ unresolved.
   and paste each ID into the table themselves.
 
 Always end by confirming the result and the next step (`set-direction`).
+
+---
+
+## Appendix A — capture scripts (write verbatim, pure ASCII)
+
+For step 8, write **one** of these to `~/.claude/`, matching the user's OS. Keep them
+exactly as shown (pure ASCII, ` | ` separators) — non-ASCII characters get mangled by
+Windows PowerShell's default encoding.
+
+**`ts-pmo-capture.ps1`** — Windows:
+
+```powershell
+# TS PMO - capture hook (Windows PowerShell).
+# Appends a one-line session stub to the capture inbox when a Claude Code
+# session ends. `debrief` later drains the inbox into your Work Log + Daily Log.
+#
+# Wired as a SessionEnd hook by `ts-pmo-setup`.
+# Nothing here writes to Notion or needs your IDs; it's a local breadcrumb only.
+
+$inbox = if ($env:TS_PMO_INBOX) { $env:TS_PMO_INBOX } else { Join-Path $HOME '.claude\ts-pmo-inbox.md' }
+$dir = Split-Path $inbox
+if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
+
+$cwd = (Get-Location).Path
+$ts  = Get-Date -Format 'yyyy-MM-dd HH:mm'
+
+$gitPart = ''
+try {
+  git -C $cwd rev-parse --is-inside-work-tree 2>$null | Out-Null
+  if ($LASTEXITCODE -eq 0) {
+    $head = git -C $cwd log -1 --format='%h %s' 2>$null
+    if ($head) { $gitPart = " | git@$head" }
+  }
+} catch {}
+
+Add-Content -Path $inbox -Value "- [ ] $ts | $cwd$gitPart" -Encoding utf8
+```
+
+**`ts-pmo-capture.sh`** — macOS / Linux / Git Bash:
+
+```bash
+#!/usr/bin/env bash
+# TS PMO - capture hook (macOS / Linux / Git Bash).
+# Appends a one-line session stub to the capture inbox when a Claude Code
+# session ends. `debrief` later drains the inbox into your Work Log + Daily Log.
+#
+# Wired as a SessionEnd hook by `ts-pmo-setup`.
+# Nothing here writes to Notion or needs your IDs; it's a local breadcrumb only.
+
+set -euo pipefail
+
+inbox="${TS_PMO_INBOX:-$HOME/.claude/ts-pmo-inbox.md}"
+mkdir -p "$(dirname "$inbox")"
+
+cwd="$(pwd)"
+ts="$(date '+%Y-%m-%d %H:%M')"
+
+git_part=""
+if git -C "$cwd" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  head="$(git -C "$cwd" log -1 --format='%h %s' 2>/dev/null || true)"
+  [ -n "$head" ] && git_part=" | git@${head}"
+fi
+
+printf -- '- [ ] %s | %s%s\n' "$ts" "$cwd" "$git_part" >> "$inbox"
+```
+
+The `SessionEnd` hook command to merge into `~/.claude/settings.json`:
+- **Windows:** `powershell -NoProfile -ExecutionPolicy Bypass -File %USERPROFILE%\.claude\ts-pmo-capture.ps1`
+- **macOS/Linux/Git Bash:** `bash ~/.claude/ts-pmo-capture.sh`

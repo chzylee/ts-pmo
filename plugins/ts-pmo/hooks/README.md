@@ -20,12 +20,12 @@ Default path: `~/.claude/ts-pmo-inbox.md` (override with the `TS_PMO_INBOX` env 
 Each session appends a line; `debrief` checks them off (`- [ ]` → `- [x]`) once logged:
 
 ```
-- [ ] 2026-06-25 14:30 · /Users/you/repos/ts-pmo · git@694a7aa debrief: capture sources
-- [x] 2026-06-25 09:12 · /Users/you/repos/site            (logged)
-- [ ] 2026-06-25 16:40 · note: called the recruiter back, phone screen Thu 2pm
+- [ ] 2026-06-25 14:30 | /Users/you/repos/ts-pmo | git@694a7aa debrief: capture sources
+- [x] 2026-06-25 09:12 | /Users/you/repos/site            (logged)
+- [ ] 2026-06-25 16:40 | note: called the recruiter back, phone screen Thu 2pm
 ```
 
-You can also add lines yourself for non-code work — anything starting `- [ ] ... · note:`
+You can also add lines yourself for non-code work — anything starting `- [ ] ... | note:`
 gets picked up. (The skills also accept **`log this: <thing>`** in chat, which appends a
 note line for you.)
 
@@ -55,7 +55,7 @@ First copy the script for your OS to a stable spot next to your config —
 {
   "hooks": {
     "SessionEnd": [
-      { "hooks": [ { "type": "command", "command": "powershell -NoProfile -File %USERPROFILE%\\.claude\\ts-pmo-capture.ps1" } ] }
+      { "hooks": [ { "type": "command", "command": "powershell -NoProfile -ExecutionPolicy Bypass -File %USERPROFILE%\\.claude\\ts-pmo-capture.ps1" } ] }
     ]
   }
 }
@@ -68,10 +68,11 @@ script you need to `~/.claude/` yourself, or just run `set up ts-pmo` and let it
 basics (timestamp + folder), just without the git line:
 
 ```json
-{ "type": "command", "command": "printf -- '- [ ] %s · %s\\n' \"$(date '+%Y-%m-%d %H:%M')\" \"$(pwd)\" >> ~/.claude/ts-pmo-inbox.md" }
+{ "type": "command", "command": "printf -- '- [ ] %s | %s\\n' \"$(date '+%Y-%m-%d %H:%M')\" \"$(pwd)\" >> ~/.claude/ts-pmo-inbox.md" }
 ```
 
-Running **`set up ts-pmo`** will offer to wire this for you.
+**`set up ts-pmo`** wires this for you automatically as a standard step — the snippets here
+are just for reference or manual setup.
 
 ---
 
