@@ -34,8 +34,9 @@ value is the Effort's name). No new databases.
    - **Work Items** — this Effort's items (a table/list, all statuses).
 5. **Board sub-pages** (each a child page of the Effort page, holding one board view):
    - **Active items · by Priority** — board of `items_ds`, GROUP BY Priority, FILTER
-     `"Effort key" = <Effort>` AND Status ≠ the **Done** label (read from the schema, never
-     hardcoded); surface **Impact** on the cards.
+     `"Effort key" = <Effort>` AND **Status is To do or Doing**
+     (exclude Done *and* On hold — read the exact labels from the schema); surface **Impact**
+     on the cards.
    - **Work Streams · by Priority** — board of `streams_ds`, GROUP BY Priority, FILTER
      `"Effort key" = <Effort>`; surface **Impact** on the cards.
    - **Items · by Status** — board of `items_ds`, GROUP BY Status, FILTER

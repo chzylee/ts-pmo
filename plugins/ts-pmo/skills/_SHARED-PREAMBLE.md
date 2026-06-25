@@ -79,7 +79,7 @@ Effort, Priority, or Status instead.)
 - **Status ladders are tier-specific** — never share one ladder across tiers:
   - Effort: `1 · Idea → 2 · Active → 3 · On hold → 4 · Shipped → 5 · Archived`
   - Work Stream: `1 · Idea → 2 · Active → 3 · On hold → 4 · Done → 5 · Archived`
-  - Work Item: `1 · To do → 2 · Doing → 3 · Done`
+  - Work Item: `1 · To do → 2 · Doing → 3 · Done`, plus `4 · On hold` (a parked side-state, not part of the To-do→Done flow)
 - **Plan** (Work Items) = the planning tag the `plan` skill maintains: `Today` /
   `This week`. It drives the top-level **📋 Todo** boards (Today board = `Plan =
   Today`; This week board = `Plan` is set). It's a notebook the user also edits by
