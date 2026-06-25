@@ -1,6 +1,6 @@
 ---
 name: create
-description: Create a fully-formed Effort, Work Stream, or Work Item — the one creation flow for every tier. Reads your Direction (north star), populates every field, asks for whatever it needs to make the item both complete and sensible against your current goals, and ends by asking what's next. Triggers on "create an effort", "create a work stream", "create a work item", "add a task", "new effort", "track this", "file this".
+description: Create a fully-formed Effort, Work Stream, or Work Item — the one creation flow for every tier. Reads your Direction (north star), populates every field plus a starter description in the page body, asks for whatever it needs to make the item both complete and sensible against your current goals, and ends by asking what's next. Triggers on "create an effort", "create a work stream", "create a work item", "add a task", "new effort", "track this", "file this".
 ---
 
 # Create → a fully-formed item, every tier
@@ -41,6 +41,13 @@ Targets:
    - **Work Item:** Name · Effort (+ Effort key) · Work Stream (if any) · Priority ·
      Impact (local to parent) · Commitment (`≤1h`/`1-3h`/`3h+`; `3h+` ⇒ propose a
      split) · Acceptance criteria (required for `1-3h`/`3h+`) · Due if known · Source.
+   - **Body (starter doc — always):** beyond the fields, draft a short **page-body
+     description** — creation isn't finished without one. Tier-scaled: an **Effort** → a
+     line or two on what it is + the goal/outcome, with light scaffolding it grows into
+     (e.g. `## Goal` · `## Scope` · `## Notes`); a **Work Stream** → a sentence or two on
+     the cluster and its aim; a **Work Item** → a brief *what · why · how to approach*.
+     Draw from what the user said and the Direction; keep it lean — a real starting point,
+     not filler.
 5. **Accountability check** (what makes this more than data entry). Before showing the
    draft, test it against the Direction:
    - Does it fit the user's stated priorities, or is it off-direction? Say so plainly
@@ -52,7 +59,8 @@ Targets:
    were told.
 6. **Show + confirm.** Present the complete draft (every field). The user approves /
    edits / drops. **Do not write until confirmed.**
-7. **Write.**
+7. **Write** the row **and its body description** (set the page content, not just the
+   fields — never leave the body empty).
    - Item / Stream → create in items_ds / streams_ds with the **Effort relation AND
      the Effort-key select set together**.
    - **Effort →** create in efforts_ds; **register its Effort key** (`update-data-source`:
