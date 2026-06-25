@@ -4,3 +4,4 @@ dist/
 .DS_Store
 .env
 ts-pmo.local.md
+.gstack/
