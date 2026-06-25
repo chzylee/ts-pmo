@@ -1,107 +1,107 @@
-# TS PMO — Task Steward · Project Management Ops
+# TS PMO
 
-**The operating layer for Claude-augmented work.** TS PMO is a project-management
-**agent** for **Claude Code**, backed by a Notion template. It learns your goals,
-keeps you accountable, and runs your work management — so your time goes to building
-*with* Claude, not managing around it.
+**Task Steward · Project Management Ops** — a project manager for Claude Code that runs inside your Notion.
 
-> *"this shit's pissing me off"* → **T**ask **S**teward · **P**roject **M**anagement **O**ps. The fix for task admin.
+You decide what matters and do the work. TS PMO does the clerical part: it files well-formed
+tasks, plans a realistic day, logs what you actually did, and tells you when your week is
+drifting from what you said mattered. It asks before it writes anything, so you stay in
+charge of your own workspace.
 
-## Two parts, one system
-1. **The Claude skill suite (7 core skills + a one-time setup)** — the agent that runs your board.
-2. **The Notion template** — the system of record. **[Duplicate it →](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)**
+And yes, TS PMO is also *this shit's pissing me off*. That's task admin. This is the fix.
 
-The skills live where you already work with Claude; `debrief` turns a Claude session
-into tracked progress. Every skill **recommends and asks before it writes** — the
-clerical work is the agent's, the judgment stays yours.
+<!-- TODO: drop a screenshot or short GIF of an Effort board here before going public -->
 
-## The skills, by job
-- **Learns your goals** → `set-direction` (writes your Direction — the yardstick).
-- **Keeps you accountable** → `plan` (a feasible day or week), `work-review` (a quick hygiene scan or a full accountability audit).
-- **Automates the busywork** → `create` (any tier → a fully-formed, goal-checked item), `surface-effort` (give an Effort its own page + boards, where you want them), `debrief` (log a Claude session, move the board), `resync` (one-screen re-entry).
+## What you get
+Two halves that work as one:
+
+- **A Claude Code skill suite** — seven skills you drive in plain language.
+- **A Notion template** — where the work actually lives. **[Duplicate it →](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)**
+
+The idea that holds it together: your **Notion fields are the task's properties** (priority,
+status, effort, estimate), and the **page body is the documentation** — what the thing is,
+why it matters, how you're approaching it. Over time that becomes a record TS PMO reads back
+to understand how you work.
+
+## Get started (~10 minutes)
+You'll need a **Notion** account and **Claude Code** with the Notion connector enabled. Run
+it from the desktop app or the terminal — web/cloud sessions don't keep your install around.
+
+1. **Duplicate the template** → **[open it here](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)** and hit Duplicate.
+2. **Connect Notion to Claude Code** (the Notion connector / MCP), if you haven't.
+3. **Install the skills.** They're Agent Skills, so you don't need the `/plugin` command
+   (which only works in the terminal anyway). Paste this into Claude Code:
+   > Install the TS PMO skills: clone https://github.com/chzylee/ts-pmo and copy its `plugins/ts-pmo/skills/` contents into my `~/.claude/skills/` folder.
+
+   Then start a new chat so they load. *(On the terminal you can instead run
+   `claude plugin marketplace add chzylee/ts-pmo` then `claude plugin install ts-pmo@chzylee/ts-pmo`.)*
+4. **Point it at your copy** — say **"set up ts-pmo"**. It finds your duplicated template,
+   shows you the IDs it resolved, and writes them to one small config file. You don't edit anything.
+5. **First run** — say **"set up my direction"**, then **"create an effort"** for each thing
+   you're working on.
+
+Full detail, including a fully manual setup, is in **[INSTALL.md](INSTALL.md)**.
+
+## How you use it
+Talk to Claude Code like a person. Each skill triggers on what you say, and confirms before it writes.
+
+| Say | What happens |
+|---|---|
+| `set up my direction` | **set-direction** interviews you and writes your Direction — the yardstick everything else is judged against. |
+| `create an effort` · `create a task` | **create** builds a fully-formed item (priority, impact, estimate, acceptance criteria) plus a starter description in its body, checked against your goals. |
+| `create a page for my Career effort` | **surface-effort** gives an Effort its own page — boards for its work items and streams — wherever you want it (top-level, say). |
+| `plan my day` · `plan my week` | **plan** builds a realistic plan, makes you cut scope when you're over-committed, and stages your Todo board. |
+| `debrief this chat` | **debrief** logs what happened to your Work Log and a dated Daily Log, and moves the board. |
+| `review my work` | **work-review** runs a quick hygiene scan or a full audit: what's neglected vs. deliberately parked, and where your time actually went. |
+| `resync me on Career` | **resync** catches you back up on an Effort after time away. |
+
+**The rhythm:** plan your day → work the board → debrief. Once a week, plan the week and run a review.
 
 ## The model
-🎯 **Effort** (Epic) → 🧭 Work Stream (optional) → ✅ Work Item. Opinionated fields —
-Priority, Impact (local to parent), Commitment, Acceptance criteria — an
-**effective-priority cascade** (a child is capped by its parent), a **Plan** tag
-(Today / This week) driving the Todo boards, and numbered select labels so boards
-always sort correctly.
+🎯 **Effort** (a top-level pursuit, like a JIRA epic) → 🧭 **Work Stream** (optional grouping)
+→ ✅ **Work Item** (a task).
 
-## Install
-Full steps in **[INSTALL.md](INSTALL.md)**. In short:
+A few opinions are baked in:
+- **Effective priority cascades.** A task can't be more urgent than the Effort it sits under,
+  so a shiny task on a parked project doesn't jump the queue.
+- **Impact is local.** It's compared against siblings under the same parent, not across your
+  whole workspace.
+- A **Plan** tag (Today / This week) drives your Todo boards, and select labels are numbered
+  so the boards always sort right.
 
-1. **Duplicate the Notion template** → **[open it here](https://languid-stocking-b20.notion.site/TS-PMO-Template-38976356d6fe819789f6c1113a92e48a)**
-2. **Connect Claude Code to Notion** (the Notion connector / MCP).
-3. **Install the skills** (they're Agent Skills — no `/plugin` needed):
-   - **Easiest (desktop app / web / terminal):** paste into Claude Code — *"Install the
-     TS PMO skills: clone https://github.com/chzylee/ts-pmo and copy its
-     `plugins/ts-pmo/skills/` contents into my `~/.claude/skills/` folder, then list what
-     you installed"* — then start a new chat.
-   - **Terminal CLI:** `claude plugin marketplace add chzylee/ts-pmo` → `claude plugin
-     install ts-pmo@chzylee/ts-pmo`.
+## The one rule
+**You're sovereign over your workspace.** Every skill reads first and confirms before it
+writes. It recommends, shows you the trade-off, and asks. It never acts on its own, and it
+never quietly "fixes" your Notion to match a stale plan. The thing AI is worst at is knowing
+what matters to *you* — TS PMO hands that part back, every time.
 
-   The in-app `/plugin` command works **only in the terminal CLI**, not the desktop app
-   or web — use the paste-in method there.
-4. **Wire the skills to your copy** — say **"set up ts-pmo"**. The `ts-pmo-setup` skill
-   auto-detects your template's databases and fills in the IDs for you (guided manual
-   fallback in INSTALL.md). Then say **"set up my direction."**
+## What it won't do
+- **Act on its own.** Every write is proposed and confirmed.
+- **Delete things.** The Notion API here can't archive pages or rows, so cleanup is on you.
+- **Replace your calendar or your tools.** It's a work ledger and planner in Notion, not a
+  do-everything assistant.
 
-## Usage
+## Updating & uninstalling
+- **Update:** re-install the skills to pull the latest. Your IDs live in
+  `~/.claude/ts-pmo.local.md`, which updates never touch — so there's no re-setup, and your
+  Notion data is never touched.
+- **Uninstall:** delete the TS PMO skill folders and `_SHARED-PREAMBLE.md` from
+  `~/.claude/skills/` (and `~/.claude/ts-pmo.local.md`). Your Notion stays yours.
 
-Talk to Claude Code in plain language — each skill triggers on what you say, asks what
-it needs, and **confirms before it writes**.
+## If something's off
+- **"It can't find my databases" / a skill isn't wired** → run **`set up ts-pmo`** (your
+  config got wiped or was never written).
+- **`/plugin is not available`** → you're on the desktop app or web. Use the paste-in install
+  above, then start a new chat.
+- **Skills don't show up after installing** → start a new chat; they load when a session begins.
+- **A board didn't build** → your Notion connector may not allow creating views; the skill
+  prints the exact filter so you can add it by hand.
 
-**Set up (once)**
-- `"set up my direction"` → **set-direction** writes your Direction — the yardstick all planning and review measure against.
+## Built in public
+I built TS PMO to run my own work — a job hunt, a daily DSA grind, this repo itself — and I'm
+building it in the open. It's early. It's **free and MIT-licensed**: use it, fork it, and tell
+me where it breaks.
 
-**Create work (any tier)**
-- `"create an effort"` · `"create a work item"` → **create** builds a fully-formed Effort / Work Stream / Work Item (priority, impact, commitment, acceptance criteria) and checks it against your goals.
-- `"create a page for my <Effort> effort"` → **surface-effort** gives an Effort its own page — linked Work-Stream / Work-Item views + board sub-pages (Impact surfaced) — at a location you choose (e.g. top-level).
-
-**Run the day / week**
-- `"plan my day"` · `"plan my week"` → **plan** builds a realistic plan by effective priority, makes you cut scope if over-committed, and stages it on the 📋 Todo boards.
-
-**Log + stay honest**
-- `"debrief this chat"` → **debrief** logs the session to the Work Log (by task) + Daily Log (by date) and moves the board.
-- `"review my work"` · `"audit my work"` → **work-review** runs a quick hygiene scan or a full accountability audit (what's neglected vs. parked, where time went).
-- `"resync me on <Effort>"` → **resync** catches you up on an Effort after time away — recent work, what's open, the next action.
-
-**The rhythm** — daily: `plan my day` → work the Today board (To do → Doing → Done) → `debrief this chat`. Weekly: `plan my week`, then `work-review`.
-
-The full walkthrough lives in the **User Guide** inside your duplicated Notion template.
-
-## Requirements
-- A **Notion** account with this template duplicated into it, and the **Notion connector / MCP** enabled in Claude Code so the skills can read and write your workspace.
-- **Claude Code** — terminal, desktop app, or web. The in-app `/plugin` command is **terminal-only**; on desktop or web use the paste-in install above. Web/cloud sessions don't persist `~/.claude`, so install and run from the desktop app or terminal for a setup that sticks.
-- A Notion connector that can **create database views and edit a database's select options** — `create` builds per-Effort boards and registers Effort-key options as you add Efforts. If your plan/connector blocks that, board-building degrades gracefully (you get an "add it manually" note) rather than failing silently.
-
-## What it doesn't do
-- **Not autonomous** — every write is proposed and confirmed; it never acts on its own.
-- **Doesn't delete** — the Notion API here can't archive pages or rows, so cleanup is manual.
-- **No calendars, reminders, or external tools** — it's a Notion-backed work ledger + planner, not a do-everything assistant.
-- **One workspace per install** — pointing it at a different Notion workspace means re-running `ts-pmo-setup`.
-
-## Updating
-Re-install the skills (paste-in, or `/plugin install` / `claude plugin install`) to pull the latest — that's it. Your IDs live in **`~/.claude/ts-pmo.local.md`**, which updates never touch, so there's **no re-setup after an update**. (Re-run `ts-pmo-setup` only if you re-duplicate the template or switch workspaces.) Updates never touch your Notion data either.
-
-## Uninstalling
-- **Plugin install:** `/plugin uninstall ts-pmo` (terminal) or remove it from the desktop **+ → Plugins → Manage**.
-- **Drop-in install:** from `~/.claude/skills/`, delete the folders `set-direction`, `create`, `plan`, `work-review`, `debrief`, `resync`, `ts-pmo-setup` and the file `_SHARED-PREAMBLE.md`; then delete `~/.claude/ts-pmo.local.md`.
-
-Your Notion workspace is yours — uninstalling the skills leaves it untouched.
-
-## Troubleshooting
-- **A skill says it can't find your databases / isn't wired** → your config file `~/.claude/ts-pmo.local.md` is missing or has a blank ID. Say **"set up ts-pmo"** (it writes the config; manual fallback in INSTALL.md).
-- **`/plugin is not available in this environment`** → you're on the desktop app or web. Use the paste-in install, then start a new chat.
-- **Skills don't show up after installing** → start a **new chat**; skills load at the start of a session.
-- **`set up ts-pmo` can't find your template** → when asked, paste your duplicated **TS PMO** container page's link (Notion → ••• → Copy link).
-- **A per-Effort board didn't get built** → your Notion connector may not allow programmatic views; add the board by hand using the filter the skill prints.
-- **A skill stops, saying a property/field is missing** → your template was edited or is an older version; the skill won't guess against a mismatched schema. Re-add the property, or re-duplicate the template.
-
-## Status
-**Canonical repo + marketplace:** `chzylee/ts-pmo` (MIT-licensed). Early / build-in-public. First-run wiring is handled by the **`ts-pmo-setup`** skill —
-it auto-detects your duplicated template through the Notion connector and writes the IDs
-in, falling back to a guided manual repoint. An **`npx ts-pmo init`** variant may follow.
+Repo + marketplace: `chzylee/ts-pmo`.
 
 ## License
-**MIT** — free and open. See [LICENSE](LICENSE).
+[MIT](LICENSE).
