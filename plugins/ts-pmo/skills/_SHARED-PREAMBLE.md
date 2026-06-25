@@ -110,8 +110,17 @@ divergence**, surfaces **one** low-pressure nudge (never an edit), then hands to
 parked Effort eating most of the week) or *repeated* — not on every small deviation. Drift
 shows up as: **structural** (Efforts the ranking ignores; one it still ranks that's now
 Shipped/Archived; the stated #1 isn't what's being worked), **allocation** (Work-Log time
-contradicts the ranking — `work-review` audits this deeply), or **stated** (the user says
-something this session that conflicts with the stored Direction).
+contradicts the ranking — `work-review` audits this deeply), **stated** (the user says
+something this session that conflicts with the stored Direction), or **tweaks** (the user
+directly edited Notion — reprioritized Efforts, flipped statuses, reordered the board —
+against the stated ranking).
+
+**Notion is the source of truth.** The Direction module is the user's *stated* intent; the
+live workspace — Efforts and their Priority/Status, the board order, the Work Log — is what's
+*actually* happening. So when they conflict, the **Direction** is the stale side: ask whether
+to update it to match what the user did, and never quietly "fix" their Notion to match an old
+Direction. (Same restraint as every nudge: default to trust; speak up only on a large
+disparity.)
 
 **When it's fuzzy, walk this hierarchy:**
 1. *Fuzzy whether it's even drift (the ask reads roughly aligned)* → **benefit of the
